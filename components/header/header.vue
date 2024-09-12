@@ -1,0 +1,84 @@
+<script setup>
+// const menu = menuStore()
+const route = useRoute()
+const show = ref(false)
+
+onBeforeMount(() => {
+  window.addEventListener('scroll', (e) => {
+    show.value = window.scrollY > 800;
+  })
+})
+</script>
+
+<template>
+  <header class="header"
+          :class="[route.path === '/' ? 'main-page' : '', show ? 'show' : '']">
+    <NuxtLink to="/">
+      <IconLogo class="header__logo" filled/>
+    </NuxtLink>
+
+    <nav class="header__nav">
+      <NuxtLink :class="['header__nav-item', {'header__nav-item_active' : route.path === '/photobank'}]"
+                to="/photobank">
+        Фотобанк
+      </NuxtLink>
+      <NuxtLink :class="['header__nav-item', {'header__nav-item_active' : route.path === '/about'}]"
+                to="/about">
+        О нас
+      </NuxtLink>
+
+      <HeaderLk/>
+    </nav>
+
+  </header>
+
+</template>
+
+<style lang="sass">
+@import "@mixin"
+@import "@color"
+.header
+  @include transition
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 90px
+  background: $white
+  z-index: 9
+  border-bottom: 1px solid $black
+  padding: 20px 100px
+  box-sizing: border-box
+
+.header__nav
+  display: flex
+  flex-direction: row
+  gap: 90px
+  color: $black
+  align-items: center
+  height: fit-content
+
+.header__nav-item
+  margin: 0
+  padding: 0
+  color: $black
+  @include font-styles(20px, 400, 24px)
+  @include transition
+  cursor: pointer
+  text-decoration: none
+
+.header__logo
+  width: 173px
+  height: 50px
+  cursor: pointer
+
+.header__nav-item_active
+  @include font-styles(20px, 700, 24px)
+
+@include hover
+  .header__nav-item:hover
+    color: $green
+</style>

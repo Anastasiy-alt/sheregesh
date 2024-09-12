@@ -1,7 +1,9 @@
 <template>
+  <Header />
   <div class="main">
     <NuxtPage />
   </div>
+  <Footer />
 </template>
 
 <style lang="sass">
@@ -15,23 +17,34 @@ html, body
   height: 100%
   margin: 0
   padding: 0
-  font-family: "Montserrat", serif
+  font-family: "Montserrat", serif !important
   font-size: 30px
   font-weight: 400
   font-style: normal
   line-height: normal
   scroll-behavior: smooth
-  overflow-x: hidden
 
-#app
+#__nuxt
   display: flex
   flex-direction: column
   width: 100%
   height: 100%
 
 .main
+  @include borderBox
+  @include transition
   position: relative
   display: flex
   flex-direction: column
-  flex: 1
+  flex: 0 0 auto
+  padding: 140px 100px 80px
+
+.nuxt-icon
+  vertical-align: baseline !important
+  margin-bottom: 0
+  width: 100%
+  height: 100%
+@include mobile
+  .main
+    padding: 80px 0 0 0
 </style>

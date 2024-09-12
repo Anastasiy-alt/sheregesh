@@ -1,4 +1,8 @@
 <script setup>
+import {Swiper, SwiperSlide} from 'swiper/vue';
+import 'swiper/css';
+
+
 const reg = [
   {
     img: 'https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
@@ -33,39 +37,47 @@ const reg = [
     text: 'Санкт-Петербург'
   }
 ]
-const count = ref(6)
 
-const moreButton = () => {
-  count.value = count.value + 6
-}
+const swiper = ref(null);
+const onSwiper = (instance) => {
+  swiper.value = instance;
+};
 </script>
 
 <template>
-  <div class="container">
-    <ElementsSearch/>
-    <div class="card-block">
-      <CardRegion v-for="(item, idx) in reg.slice(0, count)" :key="idx" :img="item.img" :text="item.text"/>
-    </div>
-    <ElementsButton class="main-button" :text="'Ещё'" @click="moreButton" v-if="count <= reg.length"/>
-  </div>
+  <p class="ph-det__title">В том же месте</p>
+  <Swiper
+      :slidesPerView="'auto'"
+      :space-between="20"
+      :slides-per-group="1"
+      class="ph-det__swiper"
+      @swiper="onSwiper">
+    <SwiperSlide v-for="(item, idx) in reg" :key="idx" class="ph-det__slide">
+      <img :src="item.img" :alt="item.text" class="ph-det__slide-img">
+
+    </SwiperSlide>
+  </Swiper>
+
 </template>
 
 <style lang="sass">
-//*
-//  outline: 1px solid darkolivegreen
+@import "@mixin"
+@import "@color"
 
-.card-block
-  display: flex
-  flex-direction: row
-  flex-wrap: wrap
-  gap: 32px
-  justify-content: center
-
-.container
-  display: flex
-  flex-direction: column
-  gap: 80px
-
-.main-button
-  margin: 0 auto
+.ph-det__title
+  margin: 0 0 50px 0
+  padding: 0
+  color: $black
+  @include font-styles(32px, 500, 39px)
+.ph-det__swiper
+  max-width: 90vw
+  overflow: hidden
+.ph-det__slide
+  width: fit-content
+.ph-det__slide-img
+  width: 288px
+  height: 335px
+  object-fit: cover
+  border-radius: 15px
+  overflow: hidden
 </style>

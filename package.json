@@ -9,8 +9,16 @@
   },
   "devDependencies": {
     "nuxt": "^3.9.0",
+    "sass": "^1.69.7",
     "vue": "^3.4.6",
-    "vue-router": "^4.2.5",
-    "sass": "^1.69.7"
+    "vue-router": "^4.2.5"
+  },
+  "dependencies": {
+    "mitt": "^3.0.1",
+    "nuxt-svgo": "^4.0.5",
+    "nuxt-swiper": "^1.2.2",
+    "swiper": "^11.1.12",
+    "vue-masonry": "^0.16.0",
+    "vue-masonry-css": "^1.0.3"
   }
 }
