@@ -3,7 +3,7 @@
 </script>
 
 <template>
-<NuxtLink to="/user" class="header-lk">
+<NuxtLink to="/user/1" class="header-lk">
   <p class="header-lk__name">Марина</p>
   <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Аватарка пользователя." class="header-lk__img">
 </NuxtLink>
@@ -27,6 +27,7 @@
   @include font-styles(20px, 400, 24px)
   color: $black
   @include transition
+  text-decoration: none
 
 
 .header-lk__img

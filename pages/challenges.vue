@@ -3,7 +3,7 @@
 </script>
 
 <template>
-О нас
+  challenges
 </template>
 
 <style lang="sass">

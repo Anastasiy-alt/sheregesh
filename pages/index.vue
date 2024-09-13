@@ -41,8 +41,13 @@ const moreButton = () => {
 </script>
 
 <template>
+  <MainBanner/>
   <div class="container">
-    <ElementsSearch/>
+    <div class="block-search">
+      <ElementsSearch/>
+      <MainTag />
+    </div>
+
     <div class="card-block">
       <CardRegion v-for="(item, idx) in reg.slice(0, count)" :key="idx" :img="item.img" :text="item.text"/>
     </div>
@@ -53,18 +58,26 @@ const moreButton = () => {
 <style lang="sass">
 //*
 //  outline: 1px solid darkolivegreen
-
+.block-search
+  display: flex
+  flex-direction: column
+  gap: 20px
+  max-width: 100%
 .card-block
   display: flex
   flex-direction: row
   flex-wrap: wrap
   gap: 32px
   justify-content: center
+  max-width: 1250px
 
 .container
   display: flex
   flex-direction: column
-  gap: 80px
+  gap: 60px
+  align-items: center
+  max-width: 1243px
+  margin: 25px auto 0
 
 .main-button
   margin: 0 auto

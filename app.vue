@@ -1,4 +1,7 @@
 <template>
+  <Head>
+    <Title>ТРОПА - Туристический фотобанк</Title>
+  </Head>
   <Header />
   <div class="main">
     <NuxtPage />
@@ -37,13 +40,12 @@ html, body
   display: flex
   flex-direction: column
   flex: 0 0 auto
-  padding: 140px 100px 80px
+  padding: 90px 100px 80px
 
 .nuxt-icon
   vertical-align: baseline !important
   margin-bottom: 0
-  width: 100%
-  height: 100%
+
 @include mobile
   .main
     padding: 80px 0 0 0

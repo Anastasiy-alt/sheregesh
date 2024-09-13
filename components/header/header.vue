@@ -18,13 +18,13 @@ onBeforeMount(() => {
     </NuxtLink>
 
     <nav class="header__nav">
-      <NuxtLink :class="['header__nav-item', {'header__nav-item_active' : route.path === '/photobank'}]"
+      <NuxtLink :class="['header__nav-item', {'header__nav-item_active' : route.path.includes('/photo')}]"
                 to="/photobank">
         Фотобанк
       </NuxtLink>
-      <NuxtLink :class="['header__nav-item', {'header__nav-item_active' : route.path === '/about'}]"
-                to="/about">
-        О нас
+      <NuxtLink :class="['header__nav-item', {'header__nav-item_active' : route.path === '/challenges'}]"
+                to="/challenges">
+        Челленджи
       </NuxtLink>
 
       <HeaderLk/>
@@ -71,9 +71,10 @@ onBeforeMount(() => {
   text-decoration: none
 
 .header__logo
-  width: 173px
-  height: 50px
+  width: 167px
+  height: 30px
   cursor: pointer
+  margin-top: 10px
 
 .header__nav-item_active
   @include font-styles(20px, 700, 24px)

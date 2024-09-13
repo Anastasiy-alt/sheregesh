@@ -3,7 +3,7 @@
 </script>
 
 <template>
-User
+  User
 </template>
 
 <style lang="sass">

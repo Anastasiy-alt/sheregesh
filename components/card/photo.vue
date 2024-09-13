@@ -53,7 +53,7 @@ const props = defineProps([
   right: 8px
 
 .card-photo__visible
-  background-color: $gray
+  background-color: $white
   border-radius: 10px
   padding: 4px 10px
   box-sizing: border-box
@@ -82,5 +82,5 @@ const props = defineProps([
 
 @include hover
   .card-photo:hover::before
-    background-color: $hover-card
+    background-color: $hover-gray
 </style>

@@ -6,16 +6,38 @@ const props = defineProps([
 </script>
 
 <template>
-<NuxtLink class="card-reg">
+<NuxtLink class="card-reg" to="/photobank">
   <img :src="img" :alt="text"
        class="card-reg__img">
   <p class="card-reg__title">{{ text }}</p>
+  <div class="test">
+    Самое популярное
+    <IconStar class="card-reg__icon" filled/>
+  </div>
 </NuxtLink>
 </template>
 
 <style lang="sass">
 @import "@mixin"
 @import "@color"
+
+.test
+  padding: 6px 20px
+  border-radius: 15px
+  background: $white
+  position: absolute
+  top: 12px
+  right: 12px
+  @include font-styles(16px, 400, 20px)
+  color: $black
+  text-decoration: none
+  display: flex
+  flex-direction: row
+  align-items: center
+  gap: 3px
+.card-reg__icon
+  width: 22px
+  height: 22px
 
 .card-reg
   position: relative

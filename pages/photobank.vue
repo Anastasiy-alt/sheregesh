@@ -1,6 +1,4 @@
 <script setup>
-// import Masonry from "plugins/masonry.client.js"
-import Masonry from 'vue-masonry-css';
 
 const bank = [
   {
@@ -214,24 +212,42 @@ const count = ref(10)
 const moreButton = () => {
   count.value = count.value + 10
 }
+
+const containerRef = ref(null);
+
+
+
+onMounted(() => {
+
+});
+
 </script>
 
 <template>
-<!--  <Masonry-->
-<!--      :cols="{ default: 4, 1100: 3, 700: 2, 500: 1 }" gutter="30px">-->
-<!--    <CardPhoto v-for="(item, idx) in bank"-->
+<!--  <div class="photobank">-->
+<!--  <div class="container-p" ref="containerRef">-->
+<!--    <CardPhoto v-for="(item, idx) in bank.slice(0, count)"-->
 <!--               :tags="item.tags"-->
 <!--               :img="item.img"-->
-<!--               :vision="item.vision"-->
+<!--               :vision="item.id"-->
 <!--               :id="item.id"-->
-<!--               class="image-grid-item"/>-->
-<!--  </Masonry>-->
-  <div class="photobank">
+<!--               class="item"/>-->
+
+<!--  </div>-->
+<!--    <ElementsButton class="main-button item" :text="'Ещё'" @click="moreButton" v-if="count <= bank.length"/>-->
+<!--  </div>-->
+
+
+
+    <div class="photobank">
+      <div class="photobank__title">
+        Республика Алтай
+      </div>
     <div class="div-e">
       <CardPhoto v-for="(item, idx) in bank.slice(0, count)"
                  :tags="item.tags"
                  :img="item.img"
-                 :vision="item.vision"
+                 :vision="item.id"
                  :id="item.id"
                  class="img-e"/>
     </div>
@@ -243,10 +259,42 @@ const moreButton = () => {
 </template>
 
 <style lang="sass">
+@import "@color"
+@import "@mixin"
+
+.container-p
+  display: flex
+  flex-wrap: wrap
+  flex-direction: column
+  gap: 10px
+  height: fit-content
+  align-items: center
+  align-content: center
+  position: relative
+
+.item:nth-child(3n + 1)
+  order: 1
+.item:nth-child(3n + 2)
+  order: 2
+.item:nth-child(3n)
+  order: 3
+
+.container-p::before,
+.container-p::after
+  content: ""
+  flex-basis: 100%
+  width: 0
+  order: 2
+
+.main-button
+  margin: 0 auto
+
+
 .photobank
   display: flex
   flex-direction: column
   gap: 50px
+  position: relative
 
 .div-e
   column-count: 4
@@ -258,8 +306,14 @@ const moreButton = () => {
   max-width: 100%
   margin-bottom: 30px
 
-.main-button
-  margin: 0 auto
+.photobank__title
+  border: 1px solid $black
+  background: rgba(2, 191, 137, 0.4)
+  border-radius: 15px
+  padding: 10px 20px
+  width: fit-content
+  margin-top: 40px
+
 //.image-grid
 //  display: block
 //  width: 100%

@@ -69,11 +69,14 @@ const onSwiper = (instance) => {
   padding: 0
   color: $black
   @include font-styles(32px, 500, 39px)
+
 .ph-det__swiper
   max-width: 90vw
   overflow: hidden
+
 .ph-det__slide
   width: fit-content
+
 .ph-det__slide-img
   width: 288px
   height: 335px
