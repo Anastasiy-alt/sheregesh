@@ -1496,6 +1496,31 @@
   resolved "https://registry.yarnpkg.com/@vue/shared/-/shared-3.5.4.tgz#d4768ddf13aded2774162298a3b5658cc999e1ee"
   integrity sha512-L2MCDD8l7yC62Te5UUyPVpmexhL9ipVnYRw9CsWfm/BGRL5FwDX4a25bcJ/OJSD3+Hx+k/a8LDKcG2AFdJV3BA==
 
+"@yeger/debounce@2.0.9":
+  version "2.0.9"
+  resolved "https://registry.yarnpkg.com/@yeger/debounce/-/debounce-2.0.9.tgz#6a193f74b422b4d3c7c24bf04f60686d5980129a"
+  integrity sha512-yapSa71O56W0zotDlgv7z/equgK61Ozb8rSEWsNX7oN543oUMucWVWIlDp73/Jg7D08xAkw+E23OVLe1xIBS7A==
+
+"@yeger/vue-lib-adapter@2.0.9":
+  version "2.0.9"
+  resolved "https://registry.yarnpkg.com/@yeger/vue-lib-adapter/-/vue-lib-adapter-2.0.9.tgz#a4d4ede410bbb837521d77de50314542e4eed6c0"
+  integrity sha512-FIaKvP596mg8J9bsphng4Ulr+EMghBG2RNrBrJCFvz9uV7YI6X0vNJ0vV/8SqL6Boe92VpRjG+puKe/HYKsnTg==
+
+"@yeger/vue-masonry-wall-core@5.0.12":
+  version "5.0.12"
+  resolved "https://registry.yarnpkg.com/@yeger/vue-masonry-wall-core/-/vue-masonry-wall-core-5.0.12.tgz#931c9dc917ba6255130c72b2bf0a8dc711424150"
+  integrity sha512-K/+GX6Wu2Y7BTA3gDZIPaXAGzcHwbLOZmFUE+3ifBocHHDJJJWSeQ8Q28BgVcje741HSTB5AMKhf7fF/KGOOGw==
+  dependencies:
+    "@yeger/debounce" "2.0.9"
+    "@yeger/vue-lib-adapter" "2.0.9"
+
+"@yeger/vue-masonry-wall@^5.0.15":
+  version "5.0.15"
+  resolved "https://registry.yarnpkg.com/@yeger/vue-masonry-wall/-/vue-masonry-wall-5.0.15.tgz#c9e7a54ccd6c43d37d09379914078237804b275d"
+  integrity sha512-I2/3ejnep4cwHYzmadDdFXNnBw1eA5wWGaQJKVpohbDx75nCL0qABGnlPgA9A46KJQRZjBMNnQG7N4d/8lj4uA==
+  dependencies:
+    "@yeger/vue-masonry-wall-core" "5.0.12"
+
 abbrev@1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
@@ -5099,6 +5124,13 @@ vue-masonry-css@^1.0.3:
   resolved "https://registry.yarnpkg.com/vue-masonry-css/-/vue-masonry-css-1.0.3.tgz#a5e7bb248570eeedcd358637d3f1f4fc7f0c5f86"
   integrity sha512-viecHQiHVLez7HlYUQsv1wJb2MT/RDSzkDp6m3In41vPrk6OsBmT2qRE8LZqYIA4daIwrnx/Xm8h4fjOpuE3hw==
 
+vue-masonry-wall@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/vue-masonry-wall/-/vue-masonry-wall-0.3.2.tgz#bead32d7e6b4ddcda4b672d48091030089bc21d1"
+  integrity sha512-uy/tY9Lz6zVZCXmS78sv5u1yf70gAC+ElFXdV8miJfLiNnzXXt2i03I8sccx2YXDKk1IOZv6wDbKTUL8ethvfw==
+  dependencies:
+    vue-observe-visibility "^0.4.6"
+
 vue-masonry@^0.16.0:
   version "0.16.0"
   resolved "https://registry.yarnpkg.com/vue-masonry/-/vue-masonry-0.16.0.tgz#e374fa34024cee664f6983bf672f417aa8cad2d1"
@@ -5108,6 +5140,11 @@ vue-masonry@^0.16.0:
     masonry-layout "^4.2.2"
     mitt "^3.0.0"
     vue-demi "^0.13.2"
+
+vue-observe-visibility@^0.4.6:
+  version "0.4.6"
+  resolved "https://registry.yarnpkg.com/vue-observe-visibility/-/vue-observe-visibility-0.4.6.tgz#878cb8ebcf3078e40807af29774e97105ebd519e"
+  integrity sha512-xo0CEVdkjSjhJoDdLSvoZoQrw/H2BlzB5jrCBKGZNXN2zdZgMuZ9BKrxXDjNP2AxlcCoKc8OahI3F3r3JGLv2Q==
 
 vue-router@^4.2.5, vue-router@^4.4.3:
   version "4.4.4"

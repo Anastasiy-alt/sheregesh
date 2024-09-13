@@ -41,6 +41,7 @@ html, body
   flex-direction: column
   flex: 0 0 auto
   padding: 90px 100px 80px
+  align-items: center
 
 .nuxt-icon
   vertical-align: baseline !important

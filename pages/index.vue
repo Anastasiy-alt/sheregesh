@@ -45,7 +45,7 @@ const moreButton = () => {
   <div class="container">
     <div class="block-search">
       <ElementsSearch/>
-      <MainTag />
+      <MainTagSlider />
     </div>
 
     <div class="card-block">

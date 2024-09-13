@@ -16,12 +16,10 @@ export default defineNuxtConfig({
     autoImportPath: './assets/icons/',
     componentPrefix: 'Icon'
   },
-  // plugins: [
-  //   '~/plugins/masonry.client.js'
-  // ]
+  plugins: [
+    '~/plugins/masonry.client.js'
+  ]
   // plugins: [
   //   { src: '~/plugins/masonry.client', ssr: false }
   // ]
-
-
 })

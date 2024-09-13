@@ -14,11 +14,13 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
+    "@yeger/vue-masonry-wall": "^5.0.15",
     "mitt": "^3.0.1",
     "nuxt-svgo": "^4.0.5",
     "nuxt-swiper": "^1.2.2",
     "swiper": "^11.1.12",
     "vue-masonry": "^0.16.0",
-    "vue-masonry-css": "^1.0.3"
+    "vue-masonry-css": "^1.0.3",
+    "vue-masonry-wall": "^0.3.2"
   }
 }
