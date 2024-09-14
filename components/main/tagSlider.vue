@@ -6,6 +6,18 @@ const swiper = ref(null);
 const onSwiper = (instance) => {
   swiper.value = instance;
 };
+
+const tar = ['природа'
+  , 'лес'
+  , 'море'
+  , 'горы'
+  , 'птицы'
+  , 'животные'
+  , 'туман'
+  , 'дождь'
+  , 'роса'
+  , 'цветы'
+  , 'дерево']
 </script>
 
 <template>
@@ -16,8 +28,8 @@ const onSwiper = (instance) => {
         :slides-per-group="1"
         class="swiper-tag__slider"
         @swiper="onSwiper">
-      <SwiperSlide v-for="(item, idx) in 25" :key="idx" class="swiper-tag__slide">
-        <MainTag />
+      <SwiperSlide v-for="(item, idx) in tar" :key="idx" class="swiper-tag__slide">
+        <MainTag :text="item"/>
       </SwiperSlide>
     </Swiper>
     <IconArrow class="next-slider-button swiper-tag__button" @click="swiper.slideNext()" filled/>

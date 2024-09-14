@@ -13,9 +13,14 @@ onBeforeMount(() => {
 <template>
   <header class="header"
           :class="[route.path === '/' ? 'main-page' : '', show ? 'show' : '']">
-    <NuxtLink to="/">
-      <IconLogo class="header__logo" filled/>
-    </NuxtLink>
+    <div class="icons">
+      <NuxtLink to="/">
+        <IconLogo class="header__logo" filled/>
+      </NuxtLink>
+      <img src="@/assets/img/bchp.png" alt="" class="bchp">
+    </div>
+
+    
 
     <nav class="header__nav">
       <NuxtLink :class="['header__nav-item', {'header__nav-item_active' : route.path.includes('/photo')}]"
@@ -37,6 +42,18 @@ onBeforeMount(() => {
 <style lang="sass">
 @import "@mixin"
 @import "@color"
+
+.bchp
+  width: 61px
+  height: 54px
+  object-fit: contain
+
+.icons
+  display: flex
+  flex-direction: row
+  align-items: center
+  gap: 60px
+
 .header
   @include transition
   display: flex

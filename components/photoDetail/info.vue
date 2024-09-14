@@ -38,7 +38,7 @@ const calculateAndApplyStyle = () => {
     const actualLines = textContent.value.scrollHeight / lineHeight;
     if (actualLines > textContainerLineCount - 1 && actualLines !== textContainerLineCount) {
       textContent.value.style.maxHeight = `${lineHeight * (textContainerLineCount - 1)}px`;
-      setTimeout(() => defaultStyles(textContainerLineCount - 1), 350);
+      setTimeout(() => defaultStyles(3), 350);
     }
     if (actualLines <= textContainerLineCount) {
       showButton.value = false;
@@ -139,9 +139,9 @@ onMounted(() => {
     </div>
 
 
-    <div class="info__map">
 
-    </div>
+<PhotoDetailMap />
+
 
 
     <div class="info__buttons-block">
@@ -161,11 +161,7 @@ onMounted(() => {
 @import "@mixin"
 @import "@color"
 
-.info__map
-  width: 100%
-  height: 100%
-  background: $black
-  border-radius: 15px
+
 
 .info__description__more
   border: none

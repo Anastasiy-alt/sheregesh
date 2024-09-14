@@ -75,7 +75,9 @@ const onSwiper = (instance) => {
   overflow: hidden
 
 .ph-det__slide
+  position: relative
   width: fit-content
+  cursor: pointer
 
 .ph-det__slide-img
   width: 288px
@@ -83,4 +85,18 @@ const onSwiper = (instance) => {
   object-fit: cover
   border-radius: 15px
   overflow: hidden
+
+.ph-det__slide::before
+  content: ''
+  width: 100%
+  height: 100%
+  position: absolute
+  left: 0
+  top: 0
+  background-color: transparent
+  @include transition
+
+@include hover
+  .ph-det__slide:hover::before
+    background-color: $hover-gray
 </style>

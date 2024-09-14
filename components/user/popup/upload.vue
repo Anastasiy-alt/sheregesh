@@ -1,5 +1,9 @@
 <script setup>
-
+const props = defineProps([
+    'close',
+    'submitImages',
+    'sucsessSubmit'
+])
 const images = ref([]);
 const fileInput = ref(null);
 const maxImages = 3;
@@ -42,31 +46,6 @@ const handleFiles = (files) => {
   }
 };
 
-const submitImages = async () => {
-  const payload = images.value.map(image => ({
-    image: image.url,
-    description: image.description
-  }));
-
-  try {
-    const response = await fetch('https://your-api-endpoint.com/upload', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(payload),
-    });
-
-    if (!response.ok) {
-      throw new Error('Error uploading images');
-    }
-
-    alert('Images uploaded successfully');
-    images.value = []; // Очищаем массив изображений после успешной загрузки
-  } catch (error) {
-    alert(`Upload failed: ${error.message}`);
-  }
-};
 
 const trip = ref('')
 const region = ref('')
@@ -84,7 +63,7 @@ const isFormValid = computed(() => {
 
 const check = ref(false)
 const checkInputs = () => {
-  const { trip, region, place } = formData.value;
+  const {trip, region, place} = formData.value;
   check.value = !!(trip && region && place);
 };
 
@@ -112,10 +91,12 @@ watch(() => [formData.value.trip, formData.value.region, formData.value.place], 
           ref="fileInput"
       />
       <ul class="upload__parameters">
-        <li class="upload__par">Оригинальные изображения, без фильтров</li>
-        <li class="upload__par">Загружать только фотографии, которыми вы владеете</li>
-        <li class="upload__par">Высокое качество изображений</li>
+        <li class="upload__par">Недопустимы темные пятна и пересветы</li>
+        <li class="upload__par">При 100% увеличении не должно быть заметного цифрового шума, зерна и артефактов сжатия</li>
+        <li class="upload__par">На фотографиях не должно быть хроматических аберраций, следов от пыли и прочих загрязнений </li>
         <li class="upload__par">Соответствие <span class="link">условиям ТРОПЫ</span></li>
+        <li class="upload__par">Не должно быть никаких дат, подписей, копирайтов, рамочек, бордюров</li>
+        <li class="upload__par">Фотографии должны иметь правильную ориентацию по вертикали/горизонтали</li>
       </ul>
 
       <ElementsButton class="upload__button"
@@ -125,15 +106,15 @@ watch(() => [formData.value.trip, formData.value.region, formData.value.place], 
                       @click="submitImages"/>
       <!--      <button type="button" @click="selectFiles">Выбрать файлы</button>-->
     </div>
-    <div v-else class="images-preview">
+    <div v-else-if="!sucsessSubmit" class="images-preview">
       <p class="upload__title">Почти конец!</p>
       <div v-for="(image, index) in images" :key="index" class="image-container">
-        <img :src="image.url" alt="Uploaded Image" class="upload__image" />
+        <img :src="image.url" alt="Uploaded Image" class="upload__image"/>
         <form class="upload__input-block" @submit.prevent="checkInputs">
-          <ElementsInput :model="trip" :type="'text'" :placeholder="'Путешествие'" />
-          <ElementsInput :model="region" :type="'text'" :placeholder="'Регион'" />
-          <ElementsInput :model="place" :type="'text'" :placeholder="'Место'" />
-          <ElementsButton class="upload__button"
+          <ElementsInput :model="trip" :type="'text'" :placeholder="'Путешествие'"/>
+          <ElementsInput :model="region" :type="'text'" :placeholder="'Регион'"/>
+          <ElementsInput :model="place" :type="'text'" :placeholder="'Место'"/>
+          <ElementsButton class="up_bu"
                           type="submit"
                           :text="'Отправить на ТРОПУ'"
                           :white="true"
@@ -142,8 +123,10 @@ watch(() => [formData.value.trip, formData.value.region, formData.value.place], 
       </div>
     </div>
 
-    <div class="finish">
-
+    <div class="finish" v-if="sucsessSubmit">
+      <img src="@/assets/img/green-bear.png" alt="" class="finish__img">
+      <p class="finish__text">Фотографии успешно отправлены на модерацию!</p>
+        <ElementsButton :text="'Вернуться в профиль'" :white="true" @click="close" />
     </div>
 
   </div>
@@ -153,16 +136,39 @@ watch(() => [formData.value.trip, formData.value.region, formData.value.place], 
 @import "@/const/mixin"
 @import "@/const/color"
 
+.finish__link
+  text-decoration: none
+
+.up_bu
+  margin-left: auto
+.finish
+  display: flex
+  flex-direction: column
+  align-items: center
+
+.finish__img
+  width: 257px
+  height: 246px
+
+.finish__text
+  margin: 0 0 27px 0
+  padding: 0
+  @include font-styles(28px, 500, 34px)
+  width: 400px
+  text-align: center
+
 .upload__image
   width: 292px
   height: 349px
   border-radius: 15px
   object-fit: cover
+  border: 1px solid $black
 
 .upload__input-block
   display: flex
-  flex-direction: column
+  flex-direction: row
   gap: 15px
+  width: 100%
 
 .upload__button
   position: absolute
@@ -175,9 +181,12 @@ watch(() => [formData.value.trip, formData.value.region, formData.value.place], 
   flex-wrap: wrap
   color: $gray-dark
   @include font-styles(14px, 400, 17px)
-  max-height: 55px
-  gap: 10px 160px
+  max-height: 105px
+  gap: 10px
   margin-top: 40px
+  width: 100%
+  padding-bottom: 80px
+  align-items: center
 
 .upload__par
   width: 400px
@@ -226,9 +235,9 @@ watch(() => [formData.value.trip, formData.value.region, formData.value.place], 
 
 .image-container
   display: flex
-  flex-direction: row
+  flex-direction: column
   justify-content: center
-  gap: 60px
+  gap: 30px
   margin-top: 20px
   align-items: center
 

@@ -13,15 +13,49 @@ const back = () => {
   uploadPhoto.value = false
 }
 
+const sucsessSubmit = ref(false)
+
+const submitImages = async () => {
+  // const payload = images.value.map(image => ({
+  //   image: image.url,
+  //   description: image.description
+  // }));
+  sucsessSubmit.value = true
+
+
+  // try {
+  //   const response = await fetch('https://your-api-endpoint.com/upload', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify(payload),
+  //   });
+  //
+  //   if (!response.ok) {
+  //     throw new Error('Error uploading images');
+  //   }
+  //
+  //   alert('Images uploaded successfully');
+  //   images.value = []; // Очищаем массив изображений после успешной загрузки
+  // } catch (error) {
+  //   alert(`Upload failed: ${error.message}`);
+  // }
+};
+
+
+
 </script>
 
 <template>
   <div class="popup-overlay"></div>
-  <div class="popup" :class="{'popup_upload' : uploadPhoto}">
+  <div class="popup" :class="[{'popup_upload' : uploadPhoto}, {'popup_suc' : !sucsessSubmit && uploadPhoto}]">
     <IconPlus class="popup__icon" filled @click="close" v-if="!uploadPhoto"/>
-    <IconArrowLine class="popup__icon popup__icon_arrow" filled @click="back" v-if="uploadPhoto"/>
+    <IconArrowLine class="popup__icon popup__icon_arrow" filled @click="back" v-if="uploadPhoto && !sucsessSubmit"/>
     <UserPopupText :close="close" :upload="upload" v-if="!uploadPhoto"/>
-    <UserPopupUpload v-if="uploadPhoto"/>
+    <UserPopupUpload v-if="uploadPhoto" :close="close"
+                     :submitImages="submitImages"
+                     :sucsessSubmit="sucsessSubmit"/>
   </div>
 </template>
 
@@ -79,4 +113,7 @@ const back = () => {
 
 .popup_upload::before
   content: none
+  
+.popup_suc
+  padding: 24px
 </style>

@@ -17,7 +17,7 @@ const props = defineProps([
 
 .input
   display: flex
-  width: 250px
+  width: 200px
   padding: 10px 17px
   align-items: flex-start
   border-radius: 10px

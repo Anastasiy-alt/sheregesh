@@ -20,7 +20,7 @@ const checkboxChecked = ref(false)
     <p class="popup__text"><span class="green">Примечание:</span> каждое изображение на ТРОПЕ публикуется по лицензии
       ТРОПЫ, которая позволяет людям использовать изображения из нашего фотостока бесплатно, в том числе в
       коммерческих целях, без указания автора на ресурсе. </p>
-    <p class="popup__text link">Узнать больше</p>
+    <p class="popup__text link">Ознакомиться с лицензионным соглашением</p>
   </div>
   <form class="popup__form">
     <label :class="{ 'label-cian': checkboxChecked }" class="checkbox__label">

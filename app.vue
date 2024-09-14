@@ -20,7 +20,7 @@ html, body
   height: 100%
   margin: 0
   padding: 0
-  font-family: "Montserrat", serif !important
+  font-family: "Inter", serif !important
   font-size: 30px
   font-weight: 400
   font-style: normal

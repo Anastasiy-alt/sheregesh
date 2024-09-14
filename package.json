@@ -18,6 +18,7 @@
     "mitt": "^3.0.1",
     "nuxt-svgo": "^4.0.5",
     "nuxt-swiper": "^1.2.2",
+    "svg-pan-zoom": "^3.6.1",
     "swiper": "^11.1.12",
     "vue-masonry": "^0.16.0",
     "vue-masonry-css": "^1.0.3",

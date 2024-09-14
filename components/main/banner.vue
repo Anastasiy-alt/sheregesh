@@ -5,7 +5,7 @@
 <template>
   <div class="banner">
     <div class="banner__text-block">
-      <h1 class="banner__title">Фотосток природы России</h1>
+      <h1 class="banner__title">Фотобанк природы России</h1>
       <p class="banner__subtitle">Тропа в волшебный мир</p>
     </div>
     <IconBannerArrow class="banner__icon" filled/>
@@ -38,7 +38,7 @@
   background-image: url('@/assets/img/main-banner.jpg')
   background-repeat: no-repeat
   background-size: cover
-  margin-left: -100px
+  //margin-left: -100px
   overflow: hidden
   position: relative
 

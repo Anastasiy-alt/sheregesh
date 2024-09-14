@@ -1,7 +1,8 @@
 <script setup>
 const props = defineProps([
     'img',
-    'text'
+    'text',
+    'tag'
 ])
 </script>
 
@@ -11,8 +12,10 @@ const props = defineProps([
        class="card-reg__img">
   <p class="card-reg__title">{{ text }}</p>
   <div class="test">
-    Самое популярное
-    <IconStar class="card-reg__icon" filled/>
+    {{tag.text}}
+    <IconStar v-if="tag.type === 'pop'" class="card-reg__icon" filled/>
+    <IconLike v-if="tag.type === 'like'" class="card-reg__icon" filled/>
+    <IconBus v-if="tag.type === 'bus'" class="card-reg__icon" filled/>
   </div>
 </NuxtLink>
 </template>

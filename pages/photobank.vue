@@ -1,5 +1,6 @@
 <script setup>
 import Masonry from 'vue-masonry-css';
+
 const bank = [
   {
     img: 'https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=2504&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
@@ -38,16 +39,16 @@ const bank = [
     id: 5
   },
   {
-    img: 'https://images.unsplash.com/photo-1441239372925-ac0b51c4c250?q=80&w=1846&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    tags: ['алтай', 'горы', 'лес'],
-    vision: 34,
-    id: 6
-  },
-  {
     img: 'https://images.unsplash.com/photo-1646770923436-4d01cf43f08b?q=80&w=2531&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     tags: ['алтай', 'горы', 'лес'],
     vision: 324,
     id: 7
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1441239372925-ac0b51c4c250?q=80&w=1846&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    tags: ['алтай', 'горы', 'лес'],
+    vision: 34,
+    id: 6
   },
   // {
   //   img: 'https://images.unsplash.com/photo-1610147323479-a7fb11ffd5dd?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
@@ -226,51 +227,40 @@ onMounted(() => {
 </script>
 
 <template>
-<!--  <masonry-wall :items="array" :ssr-columns="3" :column-width="300" :gap="16"-->
-<!--                :scroll-container="null">-->
-<!--    <template #default="{ item, index }">-->
-<!--            <CardPhoto-->
-<!--                       :tags="item.tags"-->
-<!--                       :img="item.img"-->
-<!--                       :vision="item.id"-->
-<!--                       :id="item.id"-->
-<!--                       class="image-grid-item"/>-->
-<!--      {{item.id}}-->
-<!--    </template>-->
-<!--  </masonry-wall>-->
-<!--      <ElementsButton class="main-button" :text="'Ещё'" @click="x"/>-->
-
-  <!--  <Masonry-->
-  <!--      :cols="{ default: 4, 1100: 3, 700: 2, 500: 1 }" gutter="30px">-->
-  <!--    <CardPhoto v-for="(item, idx) in bank"-->
-  <!--               :tags="item.tags"-->
-  <!--               :img="item.img"-->
-  <!--               :vision="item.vision"-->
-  <!--               :id="item.id"-->
-  <!--               class="image-grid-item"/>-->
-  <!--  </Masonry>-->
-
   <div class="photobank">
+      <IconBackArrow class="photobank__back-icon" filled/>
     <div class="photobank__title-block">
       <div class="photobank__title">
         Республика Алтай
       </div>
       <div class="photobank__tags">
         Популярные теги:
-        <MainTag :text="item" v-for="(item, idx) in tags" />
+        <MainTag :text="item" v-for="(item, idx) in tags"/>
       </div>
     </div>
-
-    <div class="container-p" ref="containerRef">
-      <CardPhoto v-for="(item, idx) in bank.slice(0, count)"
-                 :tags="item.tags"
-                 :img="item.img"
-                 :vision="item.id"
-                 :id="item.id"
-                 class="item"/>
-    </div>
-    <ElementsButton class="main-button item" :text="'Ещё'" @click="moreButton" v-if="count <= bank.length"/>
+    <masonry-wall :items="array" :ssr-columns="3" :column-width="300" :gap="16"
+                  :scroll-container="null">
+      <template #default="{ item, index }">
+        <CardPhoto
+            :tags="item.tags"
+            :img="item.img"
+            :vision="item.vision"
+            :id="item.id"
+            class="image-grid-item"/>
+      </template>
+    </masonry-wall>
+    <ElementsButton class="main-button" :text="'Ещё'" @click="x"/>
   </div>
+  <!--  <div class="photobank">-->
+  <!--    <div class="photobank__title-block">-->
+  <!--      <div class="photobank__title">-->
+  <!--        Республика Алтай-->
+  <!--      </div>-->
+  <!--      <div class="photobank__tags">-->
+  <!--        Популярные теги:-->
+  <!--        <MainTag :text="item" v-for="(item, idx) in tags" />-->
+  <!--      </div>-->
+  <!--    </div>-->
 
 
   <!--    <div class="photobank">-->
@@ -294,6 +284,11 @@ onMounted(() => {
 <style lang="sass">
 @import "@color"
 @import "@mixin"
+
+.photobank__back-icon
+  width: 41px
+  height: 46px
+  cursor: pointer
 
 .container-p
   display: flex
@@ -322,15 +317,15 @@ onMounted(() => {
   order: 2
 
 .main-button
-  margin: 0 auto
+  margin: 70px auto 0
 
 .photobank
   display: flex
   flex-direction: column
-  gap: 50px
+  gap: 40px
   position: relative
   width: 1225px
-  margin-top: 80px
+  margin-top: 40px
 
 .photobank__title-block
   width: 100%
@@ -358,7 +353,6 @@ onMounted(() => {
   margin-bottom: 30px
 
 .photobank__title
-  border: 1px solid $black
   background: rgba(2, 191, 137, 0.4)
   border-radius: 15px
   padding: 10px 20px
