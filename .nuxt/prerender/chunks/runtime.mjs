@@ -65,8 +65,8 @@ const appConfig = defuFn(inlineAppConfig);
 
 const _inlineRuntimeConfig = {
   "app": {
-    "baseURL": "/",
-    "buildId": "4d170bbd-e641-40b1-8b2f-c63cd727e393",
+    "baseURL": "/sheregesh/",
+    "buildId": "bd06003f-2cdf-4ab0-b775-a9663ecf3276",
     "buildAssetsDir": "/_nuxt/",
     "cdnURL": ""
   },

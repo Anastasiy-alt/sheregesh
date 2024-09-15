@@ -11,9 +11,8 @@ export default defineNuxtConfig({
     '@mixin': resolve(__dirname, './const/mixin.sass')
   },
   modules: ['nuxt-svgo', 'nuxt-swiper'],
-  target: 'static',
-  router: {
-    base: '/sheregesh/'
+  app: {
+    baseURL: '/sheregesh/'
   },
   svgo: {
     autoImportPath: './assets/icons/',
