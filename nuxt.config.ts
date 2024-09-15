@@ -13,7 +13,7 @@ export default defineNuxtConfig({
   modules: ['nuxt-svgo', 'nuxt-swiper'],
   mode: 'static',
   router: {
-    base: '/anastasiy-alt.github.io/'
+    base: '/sheregesh'
   },
   svgo: {
     autoImportPath: './assets/icons/',
