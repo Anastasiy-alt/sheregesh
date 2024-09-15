@@ -1,0 +1,1 @@
+import{a as o}from"./Css32YWO.js";import{A as s,I as e,N as n,M as _,H as c}from"./BYo2Wszc.js";const r={class:"tag"},x={__name:"tag",props:["text"],setup(t){return(p,i)=>{const a=o;return s(),e(a,{to:"/photobank",class:"tag-link"},{default:n(()=>[_("div",r," #"+c(t.text),1)]),_:1})}}};export{x as _};
