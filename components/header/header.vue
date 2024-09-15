@@ -17,7 +17,6 @@ onBeforeMount(() => {
       <NuxtLink to="/">
         <IconLogo class="header__logo" filled/>
       </NuxtLink>
-      <img src="@/assets/img/bchp.png" alt="" class="bchp">
     </div>
 
     
@@ -42,11 +41,6 @@ onBeforeMount(() => {
 <style lang="sass">
 @import "@mixin"
 @import "@color"
-
-.bchp
-  width: 61px
-  height: 54px
-  object-fit: contain
 
 .icons
   display: flex

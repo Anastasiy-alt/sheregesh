@@ -20,7 +20,6 @@ type NuxtAppInjections =
   InjectionType<typeof import("../../node_modules/@nuxt/devtools/dist/runtime/plugins/devtools.client.js").default> &
   InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/dev-server-logs.js").default> &
   InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/check-if-layout-used.js").default> &
-  InjectionType<typeof import("../../plugins/masonry.client.js").default> &
   InjectionType<typeof import("../../plugins/vue-masonry-wall.ts.js").default>
 
 declare module '#app' {

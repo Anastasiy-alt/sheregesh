@@ -11,12 +11,12 @@ export default defineNuxtConfig({
     '@mixin': resolve(__dirname, './const/mixin.sass')
   },
   modules: ['nuxt-svgo', 'nuxt-swiper'],
-
+  mode: 'static',
+  router: {
+    base: '/anastasiy-alt.github.io/'
+  },
   svgo: {
     autoImportPath: './assets/icons/',
     componentPrefix: 'Icon'
   },
-  plugins: [
-    '~/plugins/masonry.client.js'
-  ]
 })

@@ -40,22 +40,6 @@ const moreButton = () => {
   count.value = count.value + 6
 }
 
-const photos = ref([]);
-
-onMounted(async () => {
-  try {
-    const response = await fetch('https://mtt.shameoff.ru/api/photos');
-    if (!response.ok) throw new Error('Network response was not ok');
-
-    const data = await response.json();
-    photos.value = data;
-    console.log(photos.value)
-    // Предполагается, что API возвращает массив объектов
-  } catch (error) {
-    console.error('Error fetching photos:', error);
-  }
-});
-
 
 const type = [
   {

@@ -1,5 +1,4 @@
 <script setup>
-import Masonry from 'vue-masonry-css';
 
 const bank = [
   {
@@ -220,15 +219,24 @@ const x = () => {
 }
 
 const scrollContainer = ref(null)
-onMounted(() => {
+const photos = ref([]);
 
+onMounted(async () => {
+  try {
+    const response = await fetch('https://mtt.shameoff.ru/api/photos');
+    if (!response.ok) throw new Error('Network response was not ok');
+    photos.value = await response.json();
+    console.log(photos.value)
+  } catch (error) {
+    console.error('Error fetching photos:', error);
+  }
 });
 
 </script>
 
 <template>
   <div class="photobank">
-      <IconBackArrow class="photobank__back-icon" filled/>
+    <IconBackArrow class="photobank__back-icon" filled/>
     <div class="photobank__title-block">
       <div class="photobank__title">
         Республика Алтай
