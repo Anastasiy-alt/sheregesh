@@ -1,75 +1,17 @@
-# Nuxt 3 Minimal Starter
+# ТРОПА
+Основная идея проекта - сервис для шеринга фотографий от пользователей программы "Больше, чем путешествие". Стек фронта - Vue 3 + Nuxt.js. 
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+##### Проект "ТРОПА" занял 2 место на хакатоне Всероссийского форума "Шерегеш" и был создан за 4 дня и 3 ночи!
 
-## Setup
+[Дизайн проекта](https://www.figma.com/design/D18ctt6W5JqYNmHbpyOyhQ/Тропа-Сайт?node-id=1-4&node-type=canvas&t=zy2tOgVGnIXB0knH-0)
 
-Make sure to install the dependencies:
+[Бекенд часть](https://github.com/shameoff/more-than-trip)
 
-```bash
-# npm
-npm install
+## Для запуска проекта
+Установите зависиости:
+```yarn install```
 
-# pnpm
-pnpm install
+Запустите проект в режиме разработки:
+```yarn dev```
 
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+P.s. тестовое подключение бека в [коммите](https://github.com/Anastasiy-alt/sheregesh/commit/eccc4c5f29c6bb4628d0c74b110c77ab5afeabc7#diff-02281a80fab758cb4e8e8359b222a8a5afeaa9d5a7ba858f15d852f1f8969ecf) на главной странице.
