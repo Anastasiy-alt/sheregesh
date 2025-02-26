@@ -1,13 +1,9 @@
-<script setup>
-const props = defineProps([
-  'close',
-  'upload'
-])
+<script lang="ts" setup>
+const props = defineProps({
+  upload: Function
+})
 
-
-
-const checkboxChecked = ref(false)
-
+const checkboxChecked = ref<boolean>(false)
 
 </script>
 
@@ -28,7 +24,7 @@ const checkboxChecked = ref(false)
       <span class="checkbox__visible"></span>
       Я ознакомлен(а) и согласен(на)
     </label>
-    <ElementsButton :text="'Перейти к загрузке'" :disable="!checkboxChecked" :white="true" @click="upload"/>
+    <ElementsButton :disable="!checkboxChecked" :text="'Перейти к загрузке'" :white="true" @click="upload"/>
   </form>
 </template>
 

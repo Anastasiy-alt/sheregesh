@@ -1,7 +1,7 @@
-<script setup>
+<script lang="ts" setup>
 // const menu = menuStore()
 const route = useRoute()
-const show = ref(false)
+const show = ref<boolean>(false)
 
 onBeforeMount(() => {
   window.addEventListener('scroll', (e) => {
@@ -11,16 +11,13 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <header class="header"
-          :class="[route.path === '/' ? 'main-page' : '', show ? 'show' : '']">
+  <header :class="[route.path === '/' ? 'main-page' : '', show ? 'show' : '']"
+          class="header">
     <div class="icons">
       <NuxtLink to="/">
         <IconLogo class="header__logo" filled/>
       </NuxtLink>
     </div>
-
-    
-
     <nav class="header__nav">
       <NuxtLink :class="['header__nav-item', {'header__nav-item_active' : route.path.includes('/photo')}]"
                 to="/photobank">
@@ -30,12 +27,9 @@ onBeforeMount(() => {
                 to="/challenges">
         Челленджи
       </NuxtLink>
-
       <HeaderLk/>
     </nav>
-
   </header>
-
 </template>
 
 <style lang="sass">

@@ -1,22 +1,23 @@
-<script setup>
-const props = defineProps([
-    'tags',
-    'img',
-    'vision',
-    'id'
-])
+<script lang="ts" setup>
+
+const props = defineProps({
+  tags: Array as PropType<string[]>,
+  img: String,
+  vision: Number,
+  id: Number
+})
 </script>
 
 <template>
-  <NuxtLink class="card-photo" :to="`/photo/${id}`">
+  <NuxtLink :to="`/photo/${id}`" class="card-photo">
     <img :src="img" alt=""
          class="card-photo__img">
     <div class="card-photo__tag-block">
       <ElementsTag v-for="(tag, idx) in tags" :key="idx" :text="tag"/>
     </div>
     <div class="card-photo__visible">
-      {{vision}}
-      <IconEye class="card-photo__visible-icon" filled />
+      {{ vision }}
+      <IconEye class="card-photo__visible-icon" filled/>
     </div>
   </NuxtLink>
 </template>

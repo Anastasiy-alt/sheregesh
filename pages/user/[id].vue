@@ -31,4 +31,5 @@
   opacity: 0.5
   background-size: contain
   background-image: url('@/assets/img/bear.png')
+  background-repeat: no-repeat
 </style>

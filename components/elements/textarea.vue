@@ -1,14 +1,13 @@
-<script setup>
+<script lang="ts" setup>
 
-const props = defineProps([
-  'placeholder',
-  'type'
-]);
+const props = defineProps({
+  placeholder: String,
+  // type
+});
 </script>
 
 <template>
-  <textarea  class="textarea" placeholder="Описание"></textarea>
-
+  <textarea class="textarea" placeholder="Описание"></textarea>
 </template>
 
 <style lang="sass">
@@ -35,6 +34,7 @@ const props = defineProps([
 
 .textarea:not(:placeholder-shown)
   border: 1px solid $green
+
 .textarea:active
   background: none
 

@@ -1,10 +1,11 @@
-<script setup>
-const props = defineProps([
-  'close'
-])
-const uploadPhoto = ref(false)
+<script lang="ts" setup>
+const props = defineProps({
+  close: Function
+})
+const uploadPhoto = ref<boolean>(false)
+const sucsessSubmit = ref<boolean>(false)
 
-const upload = (evt) => {
+const upload = (evt: MouseEvent) => {
   evt.preventDefault()
   uploadPhoto.value = true
 }
@@ -12,8 +13,6 @@ const upload = (evt) => {
 const back = () => {
   uploadPhoto.value = false
 }
-
-const sucsessSubmit = ref(false)
 
 const submitImages = async () => {
   // const payload = images.value.map(image => ({
@@ -43,16 +42,14 @@ const submitImages = async () => {
   // }
 };
 
-
-
 </script>
 
 <template>
   <div class="popup-overlay"></div>
-  <div class="popup" :class="[{'popup_upload' : uploadPhoto}, {'popup_suc' : !sucsessSubmit && uploadPhoto}]">
-    <IconPlus class="popup__icon" filled @click="close" v-if="!uploadPhoto"/>
-    <IconArrowLine class="popup__icon popup__icon_arrow" filled @click="back" v-if="uploadPhoto && !sucsessSubmit"/>
-    <UserPopupText :close="close" :upload="upload" v-if="!uploadPhoto"/>
+  <div :class="[{'popup_upload' : uploadPhoto}, {'popup_suc' : !sucsessSubmit && uploadPhoto}]" class="popup">
+    <IconPlus v-if="!uploadPhoto" class="popup__icon" filled @click="close"/>
+    <IconArrowLine v-if="uploadPhoto && !sucsessSubmit" class="popup__icon popup__icon_arrow" filled @click="back"/>
+    <UserPopupText v-if="!uploadPhoto" :close="close" :upload="upload"/>
     <UserPopupUpload v-if="uploadPhoto" :close="close"
                      :submitImages="submitImages"
                      :sucsessSubmit="sucsessSubmit"/>
@@ -62,7 +59,6 @@ const submitImages = async () => {
 <style lang="sass">
 @import "@/const/mixin"
 @import "@/const/color"
-
 
 
 .popup__icon_arrow
@@ -113,7 +109,7 @@ const submitImages = async () => {
 
 .popup_upload::before
   content: none
-  
+
 .popup_suc
   padding: 24px
 </style>

@@ -1,8 +1,8 @@
-<script setup>
+<script lang="ts" setup>
 const tags = ['по просмотрам', 'по лайкам', 'недавно загруженые', 'давно загруженные']
 
-const count = ref(12)
-const isOpen = ref(false)
+const count = ref<number>(12)
+const isOpen = ref<boolean>(false)
 const moreButton = () => {
   count.value = count.value + 12
 }
@@ -168,17 +168,17 @@ const bank = [
   <div class="photos">
     <div class="photos__title-block">
       <p class="photos__title">Мои фотографии</p>
-      <ElementsButton :text="'Загрузить фотографии'" :plus="true" :white="true" @click="openPopup"/>
+      <ElementsButton :plus="true" :text="'Загрузить фотографии'" :white="true" @click="openPopup"/>
     </div>
     <div class="photos__tags">
-      <MainTag :text="item" v-for="(item, idx) in tags" :disable="true" :link="''"/>
+      <MainTag v-for="(item, idx) in tags" :disable="true" :link="''" :text="item"/>
     </div>
     <div class="photos__photo-block">
-      <NuxtLink to="/photobank" v-for="(item, idx) in bank.slice(0, count)">
-        <img class="photos__img" :src="item.img" alt="">
+      <NuxtLink v-for="(item, idx) in bank.slice(0, count)" to="/photobank">
+        <img :src="item.img" alt="" class="photos__img">
       </NuxtLink>
     </div>
-    <ElementsButton class="photos__button" :text="'Ещё'" @click="moreButton" v-if="count < bank.length"/>
+    <ElementsButton v-if="count < bank.length" :text="'Ещё'" class="photos__button" @click="moreButton"/>
   </div>
 </template>
 

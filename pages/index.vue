@@ -1,7 +1,7 @@
 <script setup>
 const reg = [
   {
-    img: 'https://downloader.disk.yandex.ru/preview/ba049f20d2dcc754b46b2233d1abb04e6aa9379304d95e8a25cc42584d5320f2/66e55ef4/e83uJ1Q9zbHaoCRGdyA-Vj4QVL8fx4YUtZTcvoiiNIRLvixYxCTnk8VY4tQkT0poTiCnjAfx3MIrrxLMw39tNg%3D%3D?uid=0&filename=1.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&tknv=v2&size=2048x2048',
+    img: 'https://images.unsplash.com/photo-1616149524443-c4544d94a08f?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     text: 'Кемеровская область'
   },
   {

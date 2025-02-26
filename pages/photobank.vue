@@ -1,5 +1,4 @@
 <script setup>
-
 const bank = [
   {
     img: 'https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=2504&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
@@ -206,6 +205,7 @@ const bank = [
   //   id: 160
   // }
 ]
+
 const tags = ['природа', 'лес', 'деревья', 'горы', 'реки']
 const count = ref(10)
 
@@ -222,14 +222,14 @@ const scrollContainer = ref(null)
 const photos = ref([]);
 
 onMounted(async () => {
-  try {
-    const response = await fetch('https://mtt.shameoff.ru/api/photos');
-    if (!response.ok) throw new Error('Network response was not ok');
-    photos.value = await response.json();
-    console.log(photos.value)
-  } catch (error) {
-    console.error('Error fetching photos:', error);
-  }
+  // try {
+  //   const response = await fetch('https://mtt.shameoff.ru/api/photos');
+  //   if (!response.ok) throw new Error('Network response was not ok');
+  //   photos.value = await response.json();
+  //   console.log(photos.value)
+  // } catch (error) {
+  //   console.error('Error fetching photos:', error);
+  // }
 });
 
 </script>

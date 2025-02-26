@@ -24,8 +24,10 @@
     "nuxt-swiper": "^1.2.2",
     "svg-pan-zoom": "^3.6.1",
     "swiper": "^11.1.12",
+    "typescript": "^5.7.3",
     "vue-masonry": "^0.16.0",
     "vue-masonry-css": "^1.0.3",
-    "vue-masonry-wall": "^0.3.2"
+    "vue-masonry-wall": "^0.3.2",
+    "vue-tsc": "^2.2.2"
   }
 }

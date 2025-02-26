@@ -1,9 +1,9 @@
-<script setup>
+<script setup lang="ts">
 import {Swiper, SwiperSlide} from 'swiper/vue';
 import 'swiper/css';
 
-const swiper = ref(null);
-const onSwiper = (instance) => {
+const swiper = ref<object>();
+const onSwiper = (instance: object) => {
   swiper.value = instance;
 };
 

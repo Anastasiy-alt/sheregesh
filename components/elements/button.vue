@@ -1,25 +1,23 @@
-<script setup>
-const props = defineProps([
-  'text',
-  'download',
-  'white',
-  'plus',
-  'disable'
-])
+<script lang="ts" setup>
+const props = defineProps({
+  text: String,
+  download: Boolean,
+  white: Boolean,
+  plus: Boolean,
+  disable: Boolean
+})
 </script>
 
 <template>
-  <button class="button" :class="[{'button_download' : download},
+  <button :class="[{'button_download' : download},
 {'button_white' : white},
-{'button_dis' : disable}]"
-          :disabled="disable" @click="download">
+{'button_dis' : disable}]" :disabled="disable"
+          class="button">
     <p class="button__text">{{ text }}</p>
-    <div class="button__icon button__icon_block" v-if="plus">
+    <div v-if="plus" class="button__icon button__icon_block">
       <IconPlus class="button__icon button__icon_black" filled/>
       <IconPlusWhite class="button__icon button__icon_white" filled/>
-
     </div>
-
   </button>
 </template>
 

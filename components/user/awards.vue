@@ -1,5 +1,5 @@
-<script setup>
-const count = ref(12)
+<script lang="ts" setup>
+const count = ref<number>(12)
 
 const colorAwards = ['violet', 'green', 'violet', 'brown', 'violet', 'brown', 'violet', 'green', 'green', 'brown', 'violet', 'green']
 </script>
@@ -11,12 +11,12 @@ const colorAwards = ['violet', 'green', 'violet', 'brown', 'violet', 'brown', 'v
       <div class="awards__count">{{ count }}</div>
     </div>
     <div class="awards__block">
-      <div class="awards__item" v-for="(item, idx) in colorAwards">
+      <div v-for="(item, idx) in colorAwards" class="awards__item">
         <div class="awards__tooltip">
-          Это достижение было полученно не легким путем за размещение 10 фотографий на сервисе
+          Это достижение было получено не легким путем, за размещение 10 фотографий на сервисе
         </div>
-        <span class="awards__item-count" :class="item">{{ idx + 1 }}</span>
-        <div class="awards__item-icon" :class="item"></div>
+        <span :class="item" class="awards__item-count">{{ idx + 1 }}</span>
+        <div :class="item" class="awards__item-icon"></div>
         <!--        <IconAward class="awards__item-icon" :class="item" filled/>-->
       </div>
     </div>

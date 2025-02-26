@@ -1,9 +1,15 @@
-<script setup>
-const props = defineProps([
-    'img',
-    'text',
-    'tag'
-])
+<script setup lang="ts">
+interface Tag {
+  text: string
+  type: string
+}
+
+const props = defineProps<{
+  img: string,
+  text: string,
+  tag: Tag
+}>()
+
 </script>
 
 <template>

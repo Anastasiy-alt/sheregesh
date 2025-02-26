@@ -1,33 +1,46 @@
-<script setup>
-const props = defineProps([
-    'close',
-    'submitImages',
-    'sucsessSubmit'
-])
-const images = ref([]);
-const fileInput = ref(null);
+<script lang="ts" setup>
+const props = defineProps<{
+  close: () => void;
+  submitImages: () => void;
+  sucsessSubmit: boolean;
+}>();
+const images = ref<{ url: string; description: string }[]>([]);
+const fileInput = ref<HTMLInputElement | null>(null);
 const maxImages = 3;
 const maxSize = 5 * 1024 * 1024; // Максимальный размер файла 5MB
-
-const onFileChange = (event) => {
-  const files = event.target.files;
-  handleFiles(files);
+const trip = ref<string>('')
+const region = ref<string>('')
+const place = ref<string>('')
+const formData = ref<{ trip: string; region: string; place: string }>({
+  trip: '',
+  region: '',
+  place: '',
+});;
+const check = ref<boolean>(false)
+const onFileChange = (event: Event) => {
+  const target = event.target as HTMLInputElement;
+  if (target.files) {
+    handleFiles(target.files);
+  }
 };
 
 const selectFiles = () => {
-  fileInput.value.click();
+  fileInput.value?.click();
 };
 
-const onDrop = (event) => {
-  const files = event.dataTransfer.files;
-  handleFiles(files);
+const onDrop = (event: DragEvent) => {
+  event.preventDefault();
+  if (event.dataTransfer?.files) {
+    handleFiles(event.dataTransfer.files);
+  }
 };
 
-const handleFiles = (files) => {
+const handleFiles = (files: FileList | null) => {
+  if (!files) return;
   for (let file of files) {
     if (images.value.length >= maxImages) {
       alert(`Вы можете загрузить только ${maxImages} фотографий.`);
-      return; // Прекращаем добавление, если достигнут лимит
+      return;
     }
 
     if (file.size > maxSize) {
@@ -38,7 +51,7 @@ const handleFiles = (files) => {
     const reader = new FileReader();
     reader.onload = (e) => {
       images.value.push({
-        url: e.target.result,
+        url: e.target?.result as string,
         description: ''
       });
     };
@@ -47,28 +60,18 @@ const handleFiles = (files) => {
 };
 
 
-const trip = ref('')
-const region = ref('')
-const place = ref('')
-const formData = ref({
-  trip: '',
-  region: '',
-  place: '',
-});
-
 const isFormValid = computed(() => {
   return trip.value.trim() !== '' && region.value.trim() !== '' && place.value.trim() !== '';
 });
 
 
-const check = ref(false)
 const checkInputs = () => {
   const {trip, region, place} = formData.value;
   check.value = !!(trip && region && place);
 };
 
 watch(() => [formData.value.trip, formData.value.region, formData.value.place], () => {
-  console.log(94)
+  console.log("Форма изменена");
 })
 
 
@@ -77,32 +80,35 @@ watch(() => [formData.value.trip, formData.value.region, formData.value.place], 
 <template>
   <div class="upload-area" @dragover.prevent @drop.prevent="onDrop">
     <div v-if="!images.length" class="upload__block">
-      <img src="@/assets/img/purple-bear.png" alt="" class="upload__img">
+      <img alt="" class="upload__img" src="@/assets/img/purple-bear.png">
       <p class="upload__title">Загрузить фотографию </p>
       <p class="upload__subtitle">Перетащите сюда до 3 фотографий или
         <span class="link" @click="selectFiles">загрузите</span> их с компьютера</p>
       <p class="upload__subsubtitle">JPEG до 20 Мб</p>
       <input
+          ref="fileInput"
+          accept="image/*"
+          hidden
+          multiple
           type="file"
           @change="onFileChange"
-          accept="image/*"
-          multiple
-          hidden
-          ref="fileInput"
       />
       <ul class="upload__parameters">
         <li class="upload__par">Недопустимы темные пятна и пересветы</li>
-        <li class="upload__par">При 100% увеличении не должно быть заметного цифрового шума, зерна и артефактов сжатия</li>
-        <li class="upload__par">На фотографиях не должно быть хроматических аберраций, следов от пыли и прочих загрязнений </li>
+        <li class="upload__par">При 100% увеличении не должно быть заметного цифрового шума, зерна и артефактов сжатия
+        </li>
+        <li class="upload__par">На фотографиях не должно быть хроматических аберраций, следов от пыли и прочих
+          загрязнений
+        </li>
         <li class="upload__par">Соответствие <span class="link">условиям ТРОПЫ</span></li>
         <li class="upload__par">Не должно быть никаких дат, подписей, копирайтов, рамочек, бордюров</li>
         <li class="upload__par">Фотографии должны иметь правильную ориентацию по вертикали/горизонтали</li>
       </ul>
 
-      <ElementsButton class="upload__button"
+      <ElementsButton :disable="!check"
                       :text="'Отправить на ТРОПУ'"
-                      :disable="!check"
                       :white="true"
+                      class="upload__button"
                       @click="submitImages"/>
       <!--      <button type="button" @click="selectFiles">Выбрать файлы</button>-->
     </div>
@@ -111,24 +117,22 @@ watch(() => [formData.value.trip, formData.value.region, formData.value.place], 
       <div v-for="(image, index) in images" :key="index" class="image-container">
         <img :src="image.url" alt="Uploaded Image" class="upload__image"/>
         <form class="upload__input-block" @submit.prevent="checkInputs">
-          <ElementsInput :model="trip" :type="'text'" :placeholder="'Путешествие'"/>
-          <ElementsInput :model="region" :type="'text'" :placeholder="'Регион'"/>
-          <ElementsInput :model="place" :type="'text'" :placeholder="'Место'"/>
-          <ElementsButton class="up_bu"
-                          type="submit"
-                          :text="'Отправить на ТРОПУ'"
+          <ElementsInput :model="trip" :placeholder="'Путешествие'" :type="'text'"/>
+          <ElementsInput :model="region" :placeholder="'Регион'" :type="'text'"/>
+          <ElementsInput :model="place" :placeholder="'Место'" :type="'text'"/>
+          <ElementsButton :text="'Отправить на ТРОПУ'"
                           :white="true"
+                          class="up_bu"
+                          type="submit"
                           @click="submitImages"/>
         </form>
       </div>
     </div>
-
-    <div class="finish" v-if="sucsessSubmit">
-      <img src="@/assets/img/green-bear.png" alt="" class="finish__img">
+    <div v-if="sucsessSubmit" class="finish">
+      <img alt="" class="finish__img" src="@/assets/img/green-bear.png">
       <p class="finish__text">Фотографии успешно отправлены на модерацию!</p>
-        <ElementsButton :text="'Вернуться в профиль'" :white="true" @click="close" />
+      <ElementsButton :text="'Вернуться в профиль'" :white="true" @click="close"/>
     </div>
-
   </div>
 </template>
 
@@ -141,6 +145,7 @@ watch(() => [formData.value.trip, formData.value.region, formData.value.place], 
 
 .up_bu
   margin-left: auto
+
 .finish
   display: flex
   flex-direction: column

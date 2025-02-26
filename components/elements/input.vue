@@ -1,14 +1,14 @@
 <script setup>
 
-const props = defineProps([
-  'placeholder',
-  'type',
-    'model'
-]);
+const props = defineProps({
+  placeholder: String,
+  type: String,
+  model: Object
+});
 </script>
 
 <template>
-    <input :v-model="model" :type="`${type}`" class="input" :placeholder="`${placeholder}`">
+  <input :placeholder="`${placeholder}`" :type="`${type}`" :v-model="model" class="input">
 </template>
 
 <style lang="sass">
@@ -35,6 +35,7 @@ const props = defineProps([
 
 .input:not(:placeholder-shown)
   border: 1px solid $green
+
 .input:active
   background: none
 

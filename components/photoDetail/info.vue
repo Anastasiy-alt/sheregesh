@@ -1,13 +1,14 @@
-<script setup>
-const tags = ['алтай', 'горы', 'лес']
-const moreText = ref('Читать')
-
-const container = ref(null);
-const textContent = ref(null);
-const showMoreBtn = ref(null);
-const showButton = ref(true);
-const expanded = ref(false);
-const windowWidth = ref()
+<script setup lang="ts">
+const tags = ref<string[]>(['алтай', 'горы', 'лес'])
+const moreText = ref<string>('Читать')
+const container = ref();
+const textContent = ref();
+const showMoreBtn = ref();
+const showButton = ref<boolean>(true);
+const expanded = ref<boolean>(false);
+const windowWidth = ref<number>(window.innerWidth);
+const countLikes = ref<number>(21)
+const isLiked = ref<boolean>(false)
 
 const toggleText = () => {
   expanded.value = !expanded.value;
@@ -21,11 +22,11 @@ const toggleText = () => {
   }
 };
 
-const defaultStyles = (count) => {
+const defaultStyles = (count: number) => {
   textContent.value.style.display = "-webkit-box";
   textContent.value.style.webkitBoxOrient = "vertical";
   textContent.value.style.overflow = "hidden";
-  textContent.value.style.setProperty('-webkit-line-clamp', count);
+  textContent.value.style.setProperty('-webkit-line-clamp', String(count));
 }
 
 const calculateAndApplyStyle = () => {
@@ -72,19 +73,13 @@ const calculateAndApplyStyle = () => {
 // const handleLikeClick = () => {
 //   onCardLike(card);
 // };
-const countLikes = ref(21)
-const isLiked = ref(false)
-const toogleLike = () => {
+
+const toggleLike = () => {
   isLiked.value = !isLiked.value
-  if (isLiked.value) {
-    countLikes.value++
-  } else {
-    countLikes.value--
-  }
+  countLikes.value += isLiked.value ? 1 : -1;
 }
 
 onMounted(() => {
-  windowWidth.value = window.innerWidth
   calculateAndApplyStyle();
 })
 
@@ -93,13 +88,11 @@ onMounted(() => {
 <template>
   <div class="info">
     <div>
-
-
-      <NuxtLink to="/user/1" class="info__user-block">
+      <NuxtLink class="info__user-block" to="/user/1">
         <img
-            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt=""
-            class="info__user-img">
+            class="info__user-img"
+            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
         <div class="info__user">
           <p class="info__user-name">Марина Баринова</p>
           <p class="info__user-travelers">5 поездок</p>
@@ -107,12 +100,11 @@ onMounted(() => {
       </NuxtLink>
       <div class="tags">
         <ElementsTag v-for="(tag, idx) in tags" :key="idx" :text="tag"/>
-
       </div>
     </div>
     <div class="info__blocks">
-      <div class="info__description info__description-anim" ref="container">
-        <p class="info__description-text info__description-text-anim" ref="textContent">
+      <div ref="container" class="info__description info__description-anim">
+        <p ref="textContent" class="info__description-text info__description-text-anim">
           В этом медвежем лесу водятся красивые медведи: и белые, и черные, и черно-белые. Вобщем стоит посетить этот
           лес, вас точно съедят!
           В этом медвежем лесу водятся красивые медведи: и белые, и черные, и черно-белые. Вобщем стоит посетить этот
@@ -121,9 +113,7 @@ onMounted(() => {
         <button v-if="showButton" ref="showMoreBtn" class="info__description__more" @click="toggleText">
           {{ moreText }}
         </button>
-
       </div>
-
       <div class="info__coordinates">
         <div class="info__coordinates-value-block">
           <p class="info__coordinates-value">Регион:</p>
@@ -137,22 +127,15 @@ onMounted(() => {
         </div>
       </div>
     </div>
-
-
-
-<PhotoDetailMap />
-
-
-
+    <PhotoDetailMap/>
     <div class="info__buttons-block">
-      <ElementsButton :text="'Скачать фото'" :download="true"/>
+      <ElementsButton :download="true" :text="'Скачать фото'"/>
       <div class="info__like-block">
-        <IconLike v-if="isLiked" class="info__like" filled @click="toogleLike"/>
-        <IconLikeDef v-if="!isLiked" class="info__like" filled @click="toogleLike"/>
+        <IconLike v-if="isLiked" class="info__like" filled @click="toggleLike"/>
+        <IconLikeDef v-if="!isLiked" class="info__like" filled @click="toggleLike"/>
         <p class="info__like-count">{{ countLikes }}</p>
       </div>
       <!--      <IconLike class="info__like" filled />-->
-
     </div>
   </div>
 </template>
@@ -160,7 +143,6 @@ onMounted(() => {
 <style lang="sass">
 @import "@mixin"
 @import "@color"
-
 
 
 .info__description__more
@@ -192,6 +174,7 @@ onMounted(() => {
   margin: 0
   padding: 0
   color: $black
+  user-select: none
   @include font-styles(16px, 400, 20px)
 
 .info__like

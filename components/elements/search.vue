@@ -1,15 +1,15 @@
-<script setup>
-const form = ref()
-const search = ref('')
+<script lang="ts" setup>
+const form = ref<object>()
+const search = ref<string>('')
 </script>
 
 <template>
-  <form ref="form" method="get" class="search">
+  <form ref="form" class="search" method="get">
     <input ref="formInput"
            v-model="search"
            class="search__input"
            placeholder="Поиск по регионам" type="text"/>
-    <IconSearch :class="['search__icon', {'search__icon_active' : search.length > 0}]" filled />
+    <IconSearch :class="['search__icon', {'search__icon_active' : search.length > 0}]" filled/>
   </form>
 </template>
 

@@ -1,25 +1,22 @@
-<script setup>
-const props = defineProps([
-  'text',
-    'disable',
-    'link'
-])
+<script lang="ts" setup>
+const props = defineProps({
+  text: String,
+  disable: Boolean,
+  link: String
+})
 </script>
 
 <template>
-
-        <NuxtLink :to="link" class="main-tag-link">
-          <div class="main-tag">
-            <p class="main-tag__text"><span v-if="!disable">#</span>{{ text }}</p>
-          </div>
-        </NuxtLink>
-
+  <NuxtLink :to="link" class="main-tag-link">
+    <div class="main-tag">
+      <p class="main-tag__text"><span v-if="!disable">#</span>{{ text }}</p>
+    </div>
+  </NuxtLink>
 </template>
 
 <style lang="sass">
 @import "@mixin"
 @import "@color"
-
 
 
 .main-tag

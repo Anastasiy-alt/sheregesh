@@ -1,4 +1,4 @@
-<script setup>
+<script lang="ts" setup>
 import {Swiper, SwiperSlide} from 'swiper/vue';
 import 'swiper/css';
 
@@ -38,8 +38,8 @@ const reg = [
   }
 ]
 
-const swiper = ref(null);
-const onSwiper = (instance) => {
+const swiper = ref<object>();
+const onSwiper = (instance: object) => {
   swiper.value = instance;
 };
 </script>
@@ -47,17 +47,15 @@ const onSwiper = (instance) => {
 <template>
   <p class="ph-det__title">В том же месте</p>
   <Swiper
+      :slides-per-group="1"
       :slidesPerView="'auto'"
       :space-between="20"
-      :slides-per-group="1"
       class="ph-det__swiper"
       @swiper="onSwiper">
     <SwiperSlide v-for="(item, idx) in reg" :key="idx" class="ph-det__slide">
-      <img :src="item.img" :alt="item.text" class="ph-det__slide-img">
-
+      <img :alt="item.text" :src="item.img" class="ph-det__slide-img">
     </SwiperSlide>
   </Swiper>
-
 </template>
 
 <style lang="sass">

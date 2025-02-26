@@ -4,6 +4,9 @@ import { resolve } from 'path'
 export default defineNuxtConfig({
   devtools: { enabled: true },
   ssr: false,
+  typescript: {
+    typeCheck: true
+  },
   alias: {
     '@components': resolve(__dirname, './components'),
     '@color': resolve(__dirname, './const/color.sass'),
