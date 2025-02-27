@@ -1,16 +1,32 @@
-<script setup>
+<script lang="ts" setup>
+import {UserData} from '~/data'
+
+interface User {
+  name: string
+  avatar: string
+  id: string
+}
+
+const user = ref()
+const route = useRoute()
+
+function getData(id: string) {
+  console.log(id)
+  user.value = UserData.find(user => user.id === id);
+}
+
+getData(String(Math.floor(Math.random() * 4) + 1))
 
 </script>
 
 <template>
-  <NuxtLink class="header-lk" to="/user/1">
-    <p class="header-lk__name">Мария</p>
+  <NuxtLink v-if="user" :to="`/user/${user.id}`" class="header-lk">
+    <p class="header-lk__name">{{ user.name }}</p>
     <img
+        :src="user.avatar"
         alt="Аватарка пользователя."
-        class="header-lk__img"
-        src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+        class="header-lk__img">
   </NuxtLink>
-
 </template>
 
 <style lang="sass">

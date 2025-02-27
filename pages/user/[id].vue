@@ -1,14 +1,53 @@
-<script setup>
+<script lang="ts" setup>
+import {UserData} from '~/data'
+
+interface User {
+  awards: Array<Award>
+  photos: Array<Photo>
+  name: string
+  old: string
+  city: string
+  quote: string
+  trips: string
+  avatar: string
+}
+
+interface Award {
+  text: string
+  icon: string
+}
+
+interface Photo {
+  id: string
+  img: string
+}
+
+const user = ref<User>()
+const route = useRoute()
+
+function getData(id: string) {
+  user.value = UserData.find(user => user.id === id);
+}
+
+onMounted(() => {
+  getData(String(route?.params?.id))
+})
 
 </script>
 
 <template>
 
-  <div class="user">
-    <UserMainInfo />
-    <UserAwards />
+  <div v-if="user" class="user">
+    <UserMainInfo
+        :city="user.city"
+        :img="user.avatar"
+        :name="user.name"
+        :old="user.old"
+        :quote="user.quote"
+        :trips="user.trips"/>
+    <UserAwards :awards="user.awards"/>
   </div>
-  <UserPhotos />
+  <UserPhotos v-if="user" :photos="user.photos"/>
 </template>
 
 <style lang="sass">

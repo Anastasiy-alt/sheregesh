@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-const props = defineProps({
-  text: String,
-  disable: Boolean,
-  link: String
-})
+const props = defineProps<{
+  text: string
+  disable: boolean
+  link: string
+}>()
 </script>
 
 <template>
@@ -35,7 +35,7 @@ const props = defineProps({
 .main-tag__text
   margin: 0
   padding: 0
-  @include font-styles(16px, 400, 20px)
+  @include font-styles(16px, 400, 16px)
   color: $black
   text-decoration: none
   @include transition

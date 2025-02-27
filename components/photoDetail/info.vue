@@ -1,5 +1,26 @@
-<script setup lang="ts">
-const tags = ref<string[]>(['алтай', 'горы', 'лес'])
+<script lang="ts" setup>
+const props = defineProps<{
+  tags: Array<Tag>
+  author: Author
+  likes: number
+  region: string
+  location: string
+  vertical: boolean
+  regionId: string
+}>()
+
+interface Tag {
+  title: string
+  slug: string
+}
+
+interface Author {
+  id: string
+  name: string
+  trips: string
+  avatar: string
+}
+
 const moreText = ref<string>('Читать')
 const container = ref();
 const textContent = ref();
@@ -7,7 +28,7 @@ const showMoreBtn = ref();
 const showButton = ref<boolean>(true);
 const expanded = ref<boolean>(false);
 const windowWidth = ref<number>(window.innerWidth);
-const countLikes = ref<number>(21)
+const countLikes = ref<number>(props.likes)
 const isLiked = ref<boolean>(false)
 
 const toggleText = () => {
@@ -87,22 +108,22 @@ onMounted(() => {
 
 <template>
   <div class="info">
-    <div>
-      <NuxtLink class="info__user-block" to="/user/1">
+    <div v-if="author">
+      <NuxtLink class="info__user-block" :to="`/user/${author.id}`">
         <img
             alt=""
             class="info__user-img"
-            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+            :src="author.avatar">
         <div class="info__user">
-          <p class="info__user-name">Марина Баринова</p>
-          <p class="info__user-travelers">5 поездок</p>
+          <p class="info__user-name">{{author.name}}</p>
+          <p class="info__user-travelers">{{author.trips}}</p>
         </div>
       </NuxtLink>
       <div class="tags">
-        <ElementsTag v-for="(tag, idx) in tags" :key="idx" :text="tag"/>
+        <ElementsTag v-for="(tag, idx) in tags" :key="idx" :text="tag.title" :link="tag.slug"/>
       </div>
     </div>
-    <div class="info__blocks">
+    <div class="info__blocks" :class="{'info__blocks_vertical' : vertical}">
       <div ref="container" class="info__description info__description-anim">
         <p ref="textContent" class="info__description-text info__description-text-anim">
           В этом медвежем лесу водятся красивые медведи: и белые, и черные, и черно-белые. Вобщем стоит посетить этот
@@ -121,13 +142,13 @@ onMounted(() => {
           <p class="info__coordinates-value">Путешествие:</p>
         </div>
         <div class="info__coordinates-value-block">
-          <p class="info__coordinates-value">Республика Алтай</p>
+          <p class="info__coordinates-value">{{region}}</p>
           <p class="info__coordinates-value">Медвежий лес</p>
           <p class="info__coordinates-value">Этно-Алтай</p>
         </div>
       </div>
     </div>
-    <PhotoDetailMap/>
+    <PhotoDetailMap :region="regionId"/>
     <div class="info__buttons-block">
       <ElementsButton :download="true" :text="'Скачать фото'"/>
       <div class="info__like-block">
@@ -208,8 +229,11 @@ onMounted(() => {
   border-radius: 15px
   background: $white
   height: fit-content
+  box-sizing: border-box
 
 .info
+  flex: 1
+  min-height: min-content
   background-color: $gray
   width: 100%
   border-radius: 15px
@@ -223,7 +247,10 @@ onMounted(() => {
 .info__blocks
   display: flex
   flex-direction: row
-  gap: 6px
+  gap: 16px 6px
+
+.info__blocks_vertical
+  flex-direction: column
 
 .info__description
   border: 1px solid $gray-dark
@@ -231,6 +258,7 @@ onMounted(() => {
   border-radius: 15px
   background: $white
   width: 100%
+  box-sizing: border-box
   @include transition
 
 .info__description-text
@@ -251,6 +279,7 @@ onMounted(() => {
   gap: 20px
   margin-bottom: 35px
   text-decoration: none
+  width: fit-content
 
 .info__user
   display: flex

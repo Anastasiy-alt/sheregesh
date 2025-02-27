@@ -98,9 +98,6 @@ onMounted(async () => {
   cursor: pointer
   fill: transparent
 
-.main-button
-  margin: 70px auto 0
-
 .photobank__button
   @include transition
   display: flex

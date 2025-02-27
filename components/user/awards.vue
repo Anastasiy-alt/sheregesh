@@ -1,23 +1,26 @@
 <script lang="ts" setup>
-const count = ref<number>(12)
+const props = defineProps<{
+  awards: Array<Award>
+}>()
 
-const colorAwards = ['violet', 'green', 'violet', 'brown', 'violet', 'brown', 'violet', 'green', 'green', 'brown', 'violet', 'green']
+interface Award {
+  text: string
+  icon: string
+}
+
 </script>
 
 <template>
   <div class="awards">
     <div class="awards__title-block">
       <p class="awards__title">Достижения</p>
-      <div class="awards__count">{{ count }}</div>
+      <div class="awards__count">{{ awards.length }}</div>
     </div>
     <div class="awards__block">
-      <div v-for="(item, idx) in colorAwards" class="awards__item">
-        <div class="awards__tooltip">
-          Это достижение было получено не легким путем, за размещение 10 фотографий на сервисе
-        </div>
-        <span :class="item" class="awards__item-count">{{ idx + 1 }}</span>
-        <div :class="item" class="awards__item-icon"></div>
-        <!--        <IconAward class="awards__item-icon" :class="item" filled/>-->
+      <div v-for="(item, idx) in awards" class="awards__item">
+        <div class="awards__tooltip">{{ item.text }}</div>
+        <span :class="item.icon" class="awards__item-count">{{ idx + 1 }}</span>
+        <div :class="item.icon" class="awards__item-icon"></div>
       </div>
     </div>
   </div>
@@ -104,30 +107,30 @@ const colorAwards = ['violet', 'green', 'violet', 'brown', 'violet', 'brown', 'v
 .awards__item:hover .awards__tooltip
   display: flex
 
-.awards__item-count.brown
+.awards__item-count.bear
   color: #BF7302
 
-.awards__item-count.violet
+.awards__item-count.bus
   color: #9747FF
 
-.awards__item-count.green
+.awards__item-count.tree
   color: #02BF89
 
-.awards__item-icon.brown
+.awards__item-icon.bear
   background-image: url('@/assets/icons/bear-off.svg')
 
-.awards__item-icon.brown:hover
+.awards__item-icon.bear:hover
   background-image: url('@/assets/icons/bear-on.svg')
 
-.awards__item-icon.violet
+.awards__item-icon.bus
   background-image: url('@/assets/icons/bus-off.svg')
 
-.awards__item-icon.violet:hover
+.awards__item-icon.bus:hover
   background-image: url('@/assets/icons/bus-on.svg')
 
-.awards__item-icon.green:hover
+.awards__item-icon.tree:hover
   background-image: url('@/assets/icons/tree-on.svg')
 
-.awards__item-icon.green
+.awards__item-icon.tree
   background-image: url('@/assets/icons/tree-off.svg')
 </style>

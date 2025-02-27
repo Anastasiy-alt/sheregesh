@@ -1,14 +1,68 @@
-<script setup>
+<script lang="ts" setup>
+import {PhotoCards} from '~/data'
 
+interface Tag {
+  title: string
+  slug: string
+}
+
+interface Author {
+  id: string
+  name: string
+  trips: string
+  avatar: string
+}
+
+interface Photo {
+  id: string
+  img: string
+  region: string
+  regionId: string
+  location: string
+  description: string,
+  tags: Array<Tag>
+  views: number
+  likes: number
+  author: Author
+}
+
+const route = useRoute()
+const router = useRouter()
+const photoData = ref<Photo>()
+const vertical = ref<boolean>(true)
+
+function getData(slug: string) {
+  photoData.value = PhotoCards.find(photo => photo.id.toString() === slug);
+  const img = new Image();
+  img.src = String(photoData.value?.img);
+
+  img.onload = function () {
+    vertical.value = img.width < img.height
+  };
+}
+
+onMounted(() => {
+  getData(String(route?.params?.id))
+})
 </script>
 
 <template>
-  <IconBackArrow class="main-info__back-icon" filled/>
-  <div class="main-info">
+  <button class="photobank__button main-info__back-icon" @click="router.back()">
+    <IconBackArrow class="photobank__back-icon" filled/>
+  </button>
+  <div v-if="photoData" :class="{'main-info_horizontal' : !vertical}" class="main-info">
     <img
-        src="https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=2504&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        alt="" class="main-info__img">
-    <PhotoDetailInfo/>
+        :src="photoData.img"
+        alt=""
+        class="main-info__img">
+    <PhotoDetailInfo
+        :author="photoData.author"
+        :likes="photoData.likes"
+        :location="photoData.location"
+        :region="photoData.region"
+        :tags="photoData.tags"
+        :regionId="photoData.regionId"
+        :vertical="vertical"/>
   </div>
   <PhotoDetailSlider/>
 </template>
@@ -25,7 +79,7 @@
 
 .main-info__img
   width: 500px
-  height: auto
+  height: min-content
   border-radius: 15px
   object-fit: contain
 
@@ -34,5 +88,12 @@
   flex-direction: row
   gap: 30px
   margin-bottom: 100px
+
+.main-info_horizontal
+  flex-direction: column
+  justify-content: center
+
+  .main-info__img
+    width: 100%
 
 </style>

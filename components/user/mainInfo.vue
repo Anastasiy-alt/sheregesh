@@ -1,27 +1,31 @@
-<script setup>
-
+<script setup lang="ts">
+const props = defineProps<{
+  name: string
+  old: string
+  city: string
+  quote: string
+  trips: string
+  img: string
+}>()
 </script>
 
 <template>
   <div class="info-user">
     <img
-        src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        :src="img"
         alt="Аватарка пользователя."
         class="info-user__img">
     <div class="info-user__block">
       <div class="info-user__text">
-        <p class="info-user__name">Мария Баринова</p>
-        <p class="info-user__value">21 год</p>
-      </div>
-      <div class="info-user__text">
-        <p class="info-user__type">Образование</p>
-        <p class="info-user__value">Южно-Уральский Государственный Университет</p>
+        <p class="info-user__name">{{name}}</p>
+        <p class="info-user__value">{{old}}</p>
       </div>
       <div class="info-user__text">
         <p class="info-user__type">Город</p>
-        <p class="info-user__value">Челябинск</p>
+        <p class="info-user__value">{{city}}</p>
       </div>
-      <p class="info-user__travels">15 поездок</p>
+      <p class="info-user__value"><i>{{quote}}</i></p>
+      <p class="info-user__travels">{{trips}}</p>
     </div>
 
   </div>
