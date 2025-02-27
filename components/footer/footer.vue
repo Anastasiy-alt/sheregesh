@@ -26,6 +26,7 @@
   display: flex
   flex-direction: row
   justify-content: space-between
+  margin-top: auto
 
 .footer__nav
   display: flex

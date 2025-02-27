@@ -7,7 +7,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <NuxtLink :to="link" class="main-tag-link">
+  <NuxtLink :to="`/photobank/tag/${link}`" class="main-tag-link">
     <div class="main-tag">
       <p class="main-tag__text"><span v-if="!disable">#</span>{{ text }}</p>
     </div>
@@ -38,8 +38,11 @@ const props = defineProps({
   @include font-styles(16px, 400, 20px)
   color: $black
   text-decoration: none
+  @include transition
 
 .main-tag:hover
   background-color: $green
   border: 1px solid $green
+  .main-tag__text
+    color: white
 </style>

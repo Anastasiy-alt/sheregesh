@@ -1,19 +1,23 @@
 <script lang="ts" setup>
+interface Tag {
+  title: string
+  slug: string
+}
 
-const props = defineProps({
-  tags: Array as PropType<string[]>,
-  img: String,
-  vision: Number,
-  id: Number
-})
+const props = defineProps<{
+  tags: Array<Tag>,
+  img: string,
+  vision: number,
+  id: string
+}>()
 </script>
 
 <template>
   <NuxtLink :to="`/photo/${id}`" class="card-photo">
     <img :src="img" alt=""
-         class="card-photo__img">
+         class="card-photo__img" >
     <div class="card-photo__tag-block">
-      <ElementsTag v-for="(tag, idx) in tags" :key="idx" :text="tag"/>
+      <ElementsTag v-for="(tag, idx) in tags" :key="idx" :link="tag.slug" :text="tag.title"/>
     </div>
     <div class="card-photo__visible">
       {{ vision }}

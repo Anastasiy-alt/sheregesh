@@ -20,7 +20,7 @@ onBeforeMount(() => {
     </div>
     <nav class="header__nav">
       <NuxtLink :class="['header__nav-item', {'header__nav-item_active' : route.path.includes('/photo')}]"
-                to="/photobank">
+                to="/photobank/all">
         Фотобанк
       </NuxtLink>
       <NuxtLink :class="['header__nav-item', {'header__nav-item_active' : route.path === '/challenges'}]"

@@ -33,46 +33,12 @@ const reg = [
     text: 'Санкт-Петербург'
   }
 ]
-
+import {RegionDataCard} from '../data/index.js'
 
 const count = ref(6)
 const moreButton = () => {
   count.value = count.value + 6
 }
-
-
-const type = [
-  {
-    type: 'pop',
-    text: 'Популярное'
-  },
-  {
-    type: 'like',
-    text: '500'
-  },
-  {
-    type: 'bus',
-    text: '10 маршрутов'
-  },  {
-    type: 'bus',
-    text: '7 маршрутов'
-  },
-  {
-    type: 'like',
-    text: '200'
-  },
-  {
-    type: 'pop',
-    text: 'Популярное'
-  },  {
-    type: 'bus',
-    text: '15 маршрутов'
-  },
-  {
-    type: 'pop',
-    text: 'Популярное'
-  },
-]
 </script>
 
 <template>
@@ -80,13 +46,14 @@ const type = [
   <div class="container">
     <div class="block-search">
       <ElementsSearch/>
-      <MainTagSlider />
+      <MainTagSlider/>
     </div>
 
     <div class="card-block">
-      <CardRegion v-for="(item, idx) in reg.slice(0, count)" :key="idx" :img="item.img" :text="item.text" :tag="type[idx]"/>
+      <CardRegion v-for="(item, idx) in RegionDataCard.slice(0, count)" :key="idx" :img="item.img" :link="item.slug"
+                  :tag="item.tag" :text="item.text"/>
     </div>
-    <ElementsButton class="main-button" :text="'Ещё'" @click="moreButton" v-if="count <= reg.length"/>
+    <ElementsButton v-if="count <= reg.length" :text="'Ещё'" class="main-button" @click="moreButton"/>
   </div>
 </template>
 
@@ -98,6 +65,7 @@ const type = [
   flex-direction: column
   gap: 20px
   max-width: 100%
+
 .card-block
   display: flex
   flex-direction: row

@@ -7,13 +7,14 @@ interface Tag {
 const props = defineProps<{
   img: string,
   text: string,
-  tag: Tag
+  tag: Tag,
+  link: string
 }>()
 
 </script>
 
 <template>
-<NuxtLink class="card-reg" to="/photobank">
+<NuxtLink class="card-reg" :to='`/photobank/${link}`'>
   <img :src="img" :alt="text"
        class="card-reg__img">
   <p class="card-reg__title">{{ text }}</p>

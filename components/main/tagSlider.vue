@@ -1,23 +1,13 @@
 <script setup lang="ts">
 import {Swiper, SwiperSlide} from 'swiper/vue';
+// import { SwiperOptions } from 'swiper/types';
 import 'swiper/css';
-
-const swiper = ref<object>();
-const onSwiper = (instance: object) => {
+import {HashtagsData} from '~/data'
+const swiper = ref<any>();
+const onSwiper = (instance: any) => {
   swiper.value = instance;
 };
 
-const tar = ['природа'
-  , 'лес'
-  , 'море'
-  , 'горы'
-  , 'птицы'
-  , 'животные'
-  , 'туман'
-  , 'дождь'
-  , 'роса'
-  , 'цветы'
-  , 'дерево']
 </script>
 
 <template>
@@ -28,12 +18,12 @@ const tar = ['природа'
         :slides-per-group="1"
         class="swiper-tag__slider"
         @swiper="onSwiper">
-      <SwiperSlide v-for="(item, idx) in tar" :key="idx" class="swiper-tag__slide">
-        <MainTag :text="item"/>
+      <SwiperSlide v-for="(item, idx) in HashtagsData" :key="idx" class="swiper-tag__slide">
+        <MainTag :text="item.title" :link="item.slug"/>
       </SwiperSlide>
     </Swiper>
-    <IconArrow class="next-slider-button swiper-tag__button" @click="swiper.slideNext()" filled/>
-    <IconArrow class="prev-slider-button swiper-tag__button" @click="swiper.slidePrev()" filled/>
+    <IconArrow class="next-slider-button swiper-tag__button" @click="swiper?.slideNext()" filled/>
+    <IconArrow class="prev-slider-button swiper-tag__button" @click="swiper?.slidePrev()" filled/>
   </div>
 </template>
 

@@ -1,11 +1,12 @@
 <script lang="ts" setup>
-const props = defineProps({
-  text: String
-})
+const props = defineProps<{
+  text: string,
+  link: string
+}>()
 </script>
 
 <template>
-  <NuxtLink class="tag-link" to="/photobank">
+  <NuxtLink class="tag-link" :to="`/photobank/tag/${link}`">
     <div class="tag">
       #{{ text }}
     </div>
