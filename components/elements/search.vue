@@ -1,10 +1,22 @@
 <script lang="ts" setup>
 const form = ref<object>()
 const search = ref<string>('')
+const router = useRouter()
+
+function formSubmit(evt: Event) {
+  evt.preventDefault()
+  router.push({
+    query: {q: search.value}
+  })
+}
+
+onMounted(() => {
+  search.value = String(router.currentRoute.value.query.q || '')
+})
 </script>
 
 <template>
-  <form ref="form" class="search" method="get">
+  <form ref="form" class="search" method="get" @submit="formSubmit">
     <input ref="formInput"
            v-model="search"
            class="search__input"
@@ -18,7 +30,7 @@ const search = ref<string>('')
 @import "@color"
 
 .search__input
-  padding: 6px 17px 6px 60px
+  padding: 10px 10px 10px 60px
   box-sizing: border-box
   margin: 0
   border-radius: 15px
@@ -26,9 +38,10 @@ const search = ref<string>('')
   outline: none !important
   background-color: $gray
   width: 100%
-  height: 44px
+  height: 60px
   @include font-styles(20px, 400, 24px)
   color: $black
+  @include transition
 
 .search
   position: relative
@@ -43,11 +56,13 @@ const search = ref<string>('')
   height: 32px
   //stroke: $gray-dark
   position: absolute
-  top: 6px
+  top: 50%
   left: 17px
+  transform: translate(0, -50%)
   cursor: pointer
   @include transition
-
-.search__icon_active
+.search__input:focus
+  border-color: $green !important
+.search__input:focus + .search__icon_active path
   stroke: $green !important
 </style>

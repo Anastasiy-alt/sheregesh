@@ -89,8 +89,8 @@ onMounted(async () => {
 </template>
 
 <style lang="sass">
-@import "../../const/color"
-@import "../../const/mixin"
+@import "@/const/color"
+@import "@/const/mixin"
 
 .photobank__back-icon
   width: 40px

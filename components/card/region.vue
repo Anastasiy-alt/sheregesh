@@ -1,7 +1,7 @@
 <script setup lang="ts">
 interface Tag {
   text: string
-  type: string
+  color: string
 }
 
 const props = defineProps<{
@@ -18,11 +18,9 @@ const props = defineProps<{
   <img :src="img" :alt="text"
        class="card-reg__img">
   <p class="card-reg__title">{{ text }}</p>
-  <div class="test">
+  <div class="card-reg__tag">
     {{tag.text}}
-    <IconStar v-if="tag.type === 'pop'" class="card-reg__icon" filled/>
-    <IconLike v-if="tag.type === 'like'" class="card-reg__icon" filled/>
-    <IconBus v-if="tag.type === 'bus'" class="card-reg__icon" filled/>
+    <div class="card-reg__icon" :style="`background: ${tag.color}`"></div>
   </div>
 </NuxtLink>
 </template>
@@ -31,7 +29,7 @@ const props = defineProps<{
 @import "@mixin"
 @import "@color"
 
-.test
+.card-reg__tag
   padding: 6px 20px
   border-radius: 15px
   background: $white
@@ -44,10 +42,12 @@ const props = defineProps<{
   display: flex
   flex-direction: row
   align-items: center
-  gap: 3px
+  gap: 10px
+
 .card-reg__icon
-  width: 22px
-  height: 22px
+  width: 18px
+  height: 18px
+  border-radius: 100%
 
 .card-reg
   position: relative

@@ -4,8 +4,8 @@ export const RegionDataCard = [
         text: 'Челябинская область',
         slug: 'chelyabinskaya-oblast',
         tag: {
-            type: 'like',
-            text: '700'
+            color: '#F57C00',
+            text: 'Уральский'
         }
     },
     {
@@ -13,8 +13,8 @@ export const RegionDataCard = [
         text: 'Томская область',
         slug: 'tomskaya-oblast',
         tag: {
-            type: 'bus',
-            text: '10 маршрутов'
+            color: '#388E3C',
+            text: 'Сибирский'
         }
     },
     {
@@ -22,8 +22,8 @@ export const RegionDataCard = [
         text: 'ХМАО - Югра',
         slug: 'hmao-yugra',
         tag: {
-            type: 'pop',
-            text: 'Популярный маршрут'
+            color: '#F57C00',
+            text: 'Уральский'
         }
     },
     {
@@ -31,8 +31,8 @@ export const RegionDataCard = [
         text: 'Республика Татарстан',
         slug: 'respublika-tatarstan',
         tag: {
-            type: 'bus',
-            text: '20 маршрутов'
+            color: '#0070ff',
+            text: 'Приволжский'
         }
     },
     {
@@ -40,8 +40,8 @@ export const RegionDataCard = [
         text: 'Камчатский край',
         slug: 'kamchatskiy-kraj',
         tag: {
-            type: 'like',
-            text: '300'
+            color: '#6495ed',
+            text: 'Дальневосточный'
         }
     },
     {
@@ -49,8 +49,8 @@ export const RegionDataCard = [
         text: 'Краснодарский край',
         slug: 'krasnodarskiy-kraj',
         tag: {
-            type: 'like',
-            text: '500'
+            color: '#FBC02D',
+            text: 'Южный'
         }
     },
     {
@@ -58,8 +58,8 @@ export const RegionDataCard = [
         text: 'Республика Алтай',
         slug: 'respublika-altay',
         tag: {
-            type: 'pop',
-            text: 'Популярный маршрут'
+            color: '#388E3C',
+            text: 'Сибирский'
         }
     },
     {
@@ -67,8 +67,8 @@ export const RegionDataCard = [
         text: 'Кемеровская область',
         slug: 'kemerovskaya-oblast',
         tag: {
-            type: 'bus',
-            text: '15 маршрутов'
+            color: '#388E3C',
+            text: 'Сибирский'
         }
     },
     {
@@ -76,8 +76,8 @@ export const RegionDataCard = [
         text: 'Санкт-Петербург',
         slug: 'sankt-peterburg',
         tag: {
-            type: 'bus',
-            text: '10 маршрутов'
+            color: '#673AB7',
+            text: 'Северо-Западный'
         }
     },
     {
@@ -85,8 +85,8 @@ export const RegionDataCard = [
         text: 'Приморский край',
         slug: 'primorskiy-kraj',
         tag: {
-            type: 'pop',
-            text: '900'
+            color: '#6495ed',
+            text: 'Дальневосточный'
         }
     },
     {
@@ -94,8 +94,8 @@ export const RegionDataCard = [
         text: 'Иркутская область',
         slug: 'irkutskaya-oblast',
         tag: {
-            type: 'like',
-            text: '300'
+            color: '#388E3C',
+            text: 'Сибирский'
         }
     },
     {
@@ -103,8 +103,8 @@ export const RegionDataCard = [
         text: 'Красноярский край',
         slug: 'krasnoyarskiy-kraj',
         tag: {
-            type: 'pop',
-            text: '600'
+            color: '#388E3C',
+            text: 'Сибирский'
         }
     },
     {
@@ -112,8 +112,8 @@ export const RegionDataCard = [
         text: 'Республика Коми',
         slug: 'respublika-komi',
         tag: {
-            type: 'bus',
-            text: '30 маршрутов'
+            color: '#673AB7',
+            text: 'Северо-Западный'
         }
     },
     {
@@ -121,8 +121,8 @@ export const RegionDataCard = [
         text: 'Республика Карелия',
         slug: 'respublika-karelia',
         tag: {
-            type: 'like',
-            text: '800'
+            color: '#673AB7',
+            text: 'Северо-Западный'
         }
     }
 ];

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import {Swiper, SwiperSlide} from 'swiper/vue';
-// import { SwiperOptions } from 'swiper/types';
 import 'swiper/css';
 import {HashtagsData} from '~/data'
 const swiper = ref<any>();
