@@ -64,7 +64,7 @@ onMounted(() => {
         :regionId="photoData.regionId"
         :vertical="vertical"/>
   </div>
-  <PhotoDetailSlider/>
+  <PhotoDetailSlider v-if="photoData" :regionId="photoData.regionId" :photoId="photoData.id"/>
 </template>
 
 <style lang="sass">

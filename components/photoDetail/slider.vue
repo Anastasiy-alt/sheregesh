@@ -1,8 +1,21 @@
 <script lang="ts" setup>
 import {Swiper, SwiperSlide} from 'swiper/vue';
 import 'swiper/css';
+import {PhotoCards} from '~/data'
 
+const props = defineProps<{
+  regionId: string
+  photoId: string
+}>()
 
+const photos = ref()
+
+function getData(slug: string) {
+  photos.value = PhotoCards.filter(e => props.regionId === e.regionId)
+      .filter(e => props.photoId !== e.id);
+}
+
+getData(props.regionId)
 const reg = [
   {
     img: 'https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
@@ -52,7 +65,7 @@ const onSwiper = (instance: object) => {
       :space-between="20"
       class="ph-det__swiper"
       @swiper="onSwiper">
-    <SwiperSlide v-for="(item, idx) in reg" :key="idx" class="ph-det__slide">
+    <SwiperSlide v-for="(item, idx) in photos" :key="idx" class="ph-det__slide">
       <img :alt="item.text" :src="item.img" class="ph-det__slide-img">
     </SwiperSlide>
   </Swiper>

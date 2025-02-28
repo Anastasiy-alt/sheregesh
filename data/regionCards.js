@@ -97,5 +97,32 @@ export const RegionDataCard = [
             type: 'like',
             text: '300'
         }
+    },
+    {
+        img: 'https://images.unsplash.com/photo-1703398197875-1af479c155a1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        text: 'Красноярский край',
+        slug: 'krasnoyarskiy-kraj',
+        tag: {
+            type: 'pop',
+            text: '600'
+        }
+    },
+    {
+        img: 'https://images.unsplash.com/photo-1675545102555-d49afd78f676?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        text: 'Республика Коми',
+        slug: 'respublika-komi',
+        tag: {
+            type: 'bus',
+            text: '30 маршрутов'
+        }
+    },
+    {
+        img: 'https://images.unsplash.com/photo-1573156667506-115190c68737?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        text: 'Республика Карелия',
+        slug: 'respublika-karelia',
+        tag: {
+            type: 'like',
+            text: '800'
+        }
     }
 ];
