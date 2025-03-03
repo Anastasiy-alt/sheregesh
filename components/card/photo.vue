@@ -10,12 +10,17 @@ const props = defineProps<{
   vision: number,
   id: string
 }>()
+
+const isLoaded = ref<boolean>(false);
+const onLoad = () => {
+  isLoaded.value = true;
+};
 </script>
 
 <template>
-  <NuxtLink :to="`/photo/${id}`" class="card-photo">
-    <img :src="img" alt=""
-         class="card-photo__img" >
+  <NuxtLink :to="`/photo/${id}`" class="card-photo" :class="{'card-photo_load' : !isLoaded}">
+    <img @load="onLoad" :src="img" alt=""
+         class="card-photo__img">
     <div class="card-photo__tag-block">
       <ElementsTag v-for="(tag, idx) in tags" :key="idx" :link="tag.slug" :text="tag.title"/>
     </div>
@@ -85,7 +90,21 @@ const props = defineProps<{
   bottom: 8px
   right: 8px
 
+.card-photo_load
+  background: $green
+
+.card-photo_load::after
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  transform: translateX(-100%)
+  background-image: linear-gradient(90deg,rgba(#fff, 0) 0,rgba(#fff, 0.2) 20%,rgba(#fff, 0.5) 60%,rgba(#fff, 0))
+  animation: shimmer 2s infinite
+  content: ''
+
 @include hover
   .card-photo:hover::before
-    background-color: $hover-gray
+    background-color: $hover-card
 </style>

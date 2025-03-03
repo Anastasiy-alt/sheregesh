@@ -11,7 +11,6 @@ const user = ref()
 const route = useRoute()
 
 function getData(id: string) {
-  console.log(id)
   user.value = UserData.find(user => user.id === id);
 }
 

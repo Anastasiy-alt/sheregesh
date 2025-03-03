@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import {Fancybox} from "@fancyapps/ui";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
+
 const props = defineProps<{
   name: string
   old: string
@@ -7,14 +10,22 @@ const props = defineProps<{
   trips: string
   img: string
 }>()
+
+onMounted(() => {
+  Fancybox.bind('[data-fancybox]');
+})
+onUnmounted(() => {
+  Fancybox.destroy();
+})
 </script>
 
 <template>
   <div class="info-user">
+    <a :data-caption="name" :href="img" data-fancybox>
     <img
         :src="img"
         alt="Аватарка пользователя."
-        class="info-user__img">
+        class="info-user__img"></a>
     <div class="info-user__block">
       <div class="info-user__text">
         <p class="info-user__name">{{name}}</p>

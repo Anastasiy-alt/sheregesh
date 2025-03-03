@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {Swiper, SwiperSlide} from 'swiper/vue';
 import 'swiper/css';
-import {HashtagsData} from '~/data'
+import {FederalDistricts} from '~/data'
 const swiper = ref<any>();
 const onSwiper = (instance: any) => {
   swiper.value = instance;
@@ -17,8 +17,8 @@ const onSwiper = (instance: any) => {
         :slides-per-group="1"
         class="swiper-tag__slider"
         @swiper="onSwiper">
-      <SwiperSlide v-for="(item, idx) in HashtagsData" :key="idx" class="swiper-tag__slide">
-        <MainTag :text="item.title" :link="item.slug"/>
+      <SwiperSlide v-for="(item, idx) in FederalDistricts" :key="idx" class="swiper-tag__slide">
+        <MainTag :text="item.title" :link="item.slug" :color="item.color"/>
       </SwiperSlide>
     </Swiper>
     <IconArrow class="next-slider-button swiper-tag__button" @click="swiper?.slideNext()" filled/>

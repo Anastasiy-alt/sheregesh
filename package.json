@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "nuxt dev",
+    "dev": "nuxt dev --host",
     "build": "nuxt build",
     "start": "nuxt start",
     "predeploy": "nuxt generate",
@@ -17,6 +17,8 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
+    "@fancyapps/fancybox": "^3.5.7",
+    "@fancyapps/ui": "^5.0.36",
     "@yeger/vue-masonry-wall": "^5.0.15",
     "gh-pages": "^6.1.1",
     "mitt": "^3.0.1",

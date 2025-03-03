@@ -8,9 +8,9 @@
     <IconLogoWhite class="footer__logo" filled/>
   </NuxtLink>
   <nav class="footer__nav">
-    <NuxtLink to="/photobank" class="footer__nav-link">Фотобанк</NuxtLink>
+    <NuxtLink to="/photobank/all" class="footer__nav-link">Фотобанк</NuxtLink>
     <NuxtLink to="/challenges" class="footer__nav-link">Челленджи</NuxtLink>
-    <NuxtLink to="/user" class="footer__nav-link">Профиль</NuxtLink>
+<!--    <NuxtLink to="/user" class="footer__nav-link">Профиль</NuxtLink>-->
   </nav>
 </footer>
 </template>

@@ -1,4 +1,7 @@
 <script lang="ts" setup>
+import { Fancybox } from "@fancyapps/ui";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
+
 import {PhotoCards} from '~/data'
 
 interface Tag {
@@ -24,25 +27,30 @@ interface Photo {
   views: number
   likes: number
   author: Author
+  trip: string
 }
 
 const route = useRoute()
 const router = useRouter()
 const photoData = ref<Photo>()
-const vertical = ref<boolean>(true)
 
 function getData(slug: string) {
   photoData.value = PhotoCards.find(photo => photo.id.toString() === slug);
   const img = new Image();
   img.src = String(photoData.value?.img);
-
-  img.onload = function () {
-    vertical.value = img.width < img.height
-  };
 }
+
+const isLoaded = ref<boolean>(false);
+const onLoad = () => {
+  isLoaded.value = true;
+};
 
 onMounted(() => {
   getData(String(route?.params?.id))
+  Fancybox.bind('[data-fancybox]');
+})
+onUnmounted(()=>{
+  Fancybox.destroy();
 })
 </script>
 
@@ -50,11 +58,18 @@ onMounted(() => {
   <button class="photobank__button main-info__back-icon" @click="router.back()">
     <IconBackArrow class="photobank__back-icon" filled/>
   </button>
-  <div v-if="photoData" :class="{'main-info_horizontal' : !vertical}" class="main-info">
-    <img
-        :src="photoData.img"
-        alt=""
-        class="main-info__img">
+  <div v-if="photoData" class="main-info">
+    <div :class="{'main-info__img-load' : !isLoaded}">
+      <a :href="photoData.img" data-fancybox :data-caption="`${photoData.region}, ${photoData.location}`">
+        <img
+            :src="photoData.img"
+            alt=""
+            @load="onLoad"
+            class="main-info__img">
+
+      </a>
+    </div>
+
     <PhotoDetailInfo
         :author="photoData.author"
         :likes="photoData.likes"
@@ -62,7 +77,8 @@ onMounted(() => {
         :region="photoData.region"
         :tags="photoData.tags"
         :regionId="photoData.regionId"
-        :vertical="vertical"/>
+        :img="photoData.img"
+        :trip="photoData.trip"/>
   </div>
   <PhotoDetailSlider v-if="photoData" :regionId="photoData.regionId" :photoId="photoData.id"/>
 </template>
@@ -88,12 +104,26 @@ onMounted(() => {
   flex-direction: row
   gap: 30px
   margin-bottom: 100px
+  width: 100%
 
-.main-info_horizontal
-  flex-direction: column
-  justify-content: center
+.main-info__img-load
+  background: $green
+  border-radius: 15px
 
-  .main-info__img
-    width: 100%
+.main-info__img-load::after
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  transform: translateX(-100%)
+  background-image: linear-gradient(90deg,rgba(#fff, 0) 0,rgba(#fff, 0.2) 20%,rgba(#fff, 0.5) 60%,rgba(#fff, 0))
+  animation: shimmer 2s infinite
+  content: ''
 
+//.main-info_horizontal
+//  flex-direction: column
+//  justify-content: center
+//  .main-info__img
+//    width: 100%
 </style>

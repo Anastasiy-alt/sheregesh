@@ -5,8 +5,9 @@ const props = defineProps<{
   likes: number
   region: string
   location: string
-  vertical: boolean
   regionId: string
+  trip: string
+  img: string
 }>()
 
 interface Tag {
@@ -21,120 +22,34 @@ interface Author {
   avatar: string
 }
 
-const moreText = ref<string>('Читать')
-const container = ref();
-const textContent = ref();
-const showMoreBtn = ref();
-const showButton = ref<boolean>(true);
-const expanded = ref<boolean>(false);
-const windowWidth = ref<number>(window.innerWidth);
 const countLikes = ref<number>(props.likes)
 const isLiked = ref<boolean>(false)
 
-const toggleText = () => {
-  expanded.value = !expanded.value;
-  if (expanded.value) {
-    moreText.value = 'Закрыть'
-    textContent.value.style.maxHeight = `${textContent.value.scrollHeight}px`;
-    textContent.value.style.setProperty('-webkit-line-clamp', 'unset');
-  } else {
-    moreText.value = 'Читать'
-    calculateAndApplyStyle();
-  }
-};
-
-const defaultStyles = (count: number) => {
-  textContent.value.style.display = "-webkit-box";
-  textContent.value.style.webkitBoxOrient = "vertical";
-  textContent.value.style.overflow = "hidden";
-  textContent.value.style.setProperty('-webkit-line-clamp', String(count));
-}
-
-const calculateAndApplyStyle = () => {
-  windowWidth.value = window.innerWidth
-  if (window.innerWidth > 1364) {
-    const lineHeight = parseFloat(window.getComputedStyle(textContent.value).lineHeight);
-    const textContainerHeight = 70
-    // Math.round(300 - (title.value.scrollHeight + 95))
-    const textContainerLineCount = Math.round(textContainerHeight / lineHeight)
-    const actualLines = textContent.value.scrollHeight / lineHeight;
-    if (actualLines > textContainerLineCount - 1 && actualLines !== textContainerLineCount) {
-      textContent.value.style.maxHeight = `${lineHeight * (textContainerLineCount - 1)}px`;
-      setTimeout(() => defaultStyles(3), 350);
-    }
-    if (actualLines <= textContainerLineCount) {
-      showButton.value = false;
-      textContent.value.style.maxHeight = `${textContent.value.scrollHeight}px`;
-    } else {
-      showButton.value = true;
-      if (expanded.value) {
-        expanded.value = false
-        moreText.value = 'Read'
-      }
-    }
-  } else {
-    textContent.value.style.display = "flex";
-    textContent.value.style.maxHeight = "fit-content";
-    textContent.value.style.webkitBoxOrient = "vertical";
-    textContent.value.style.overflow = "visible";
-    textContent.value.style.setProperty('-webkit-line-clamp', 'auto');
-  }
-};
-// const isLiked = card.likes.some(i => i._id === currentUser._id);
-// function handleCardLike(card) {
-//   const isLiked = card.likes.some(i => i._id === currentUser._id);
-//   api.changeLikeCardStatus(card._id, !isLiked)
-//       .then((newCard) => {
-//         setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
-//       })
-//       .catch((error) => {
-//         console.log(`Ошибка: ${error}`);
-//       });
-// }
-// const handleLikeClick = () => {
-//   onCardLike(card);
-// };
 
 const toggleLike = () => {
   isLiked.value = !isLiked.value
   countLikes.value += isLiked.value ? 1 : -1;
 }
-
-onMounted(() => {
-  calculateAndApplyStyle();
-})
-
 </script>
 
 <template>
   <div class="info">
     <div v-if="author">
-      <NuxtLink class="info__user-block" :to="`/user/${author.id}`">
-        <img
-            alt=""
-            class="info__user-img"
-            :src="author.avatar">
+      <NuxtLink :to="`/user/${author.id}`" class="info__user-block">
+          <img
+              :src="author.avatar"
+              alt=""
+              class="info__user-img">
         <div class="info__user">
-          <p class="info__user-name">{{author.name}}</p>
-          <p class="info__user-travelers">{{author.trips}}</p>
+          <p class="info__user-name">{{ author.name }}</p>
+          <p class="info__user-travelers">{{ author.trips }}</p>
         </div>
       </NuxtLink>
       <div class="tags">
-        <ElementsTag v-for="(tag, idx) in tags" :key="idx" :text="tag.title" :link="tag.slug"/>
+        <ElementsTag v-for="(tag, idx) in tags" :key="idx" :link="tag.slug" :text="tag.title"/>
       </div>
     </div>
-    <div class="info__blocks" :class="{'info__blocks_vertical' : vertical}">
-      <div ref="container" class="info__description info__description-anim">
-        <p ref="textContent" class="info__description-text info__description-text-anim">
-          В этом медвежем лесу водятся красивые медведи: и белые, и черные, и черно-белые. Вобщем стоит посетить этот
-          лес, вас точно съедят!
-          В этом медвежем лесу водятся красивые медведи: и белые, и черные, и черно-белые. Вобщем стоит посетить этот
-          лес, вас точно съедят!
-        </p>
-        <button v-if="showButton" ref="showMoreBtn" class="info__description__more" @click="toggleText">
-          {{ moreText }}
-        </button>
-      </div>
+    <div class="info__blocks">
       <div class="info__coordinates">
         <div class="info__coordinates-value-block">
           <p class="info__coordinates-value">Регион:</p>
@@ -142,21 +57,22 @@ onMounted(() => {
           <p class="info__coordinates-value">Путешествие:</p>
         </div>
         <div class="info__coordinates-value-block">
-          <p class="info__coordinates-value">{{region}}</p>
-          <p class="info__coordinates-value">Медвежий лес</p>
-          <p class="info__coordinates-value">Этно-Алтай</p>
+          <p class="info__coordinates-value">{{ region }}</p>
+          <p class="info__coordinates-value">{{ location }}</p>
+          <p class="info__coordinates-value">{{ trip }}</p>
         </div>
       </div>
     </div>
     <PhotoDetailMap :region="regionId"/>
     <div class="info__buttons-block">
-      <ElementsButton :download="true" :text="'Скачать фото'"/>
+      <a :download="`Фотография из региона - ${region}, ${location}`" :href="img" target="_blank">
+        <ElementsButton :download="true" :text="'Скачать фото'"/>
+      </a>
       <div class="info__like-block">
         <IconLike v-if="isLiked" class="info__like" filled @click="toggleLike"/>
         <IconLikeDef v-if="!isLiked" class="info__like" filled @click="toggleLike"/>
         <p class="info__like-count">{{ countLikes }}</p>
       </div>
-      <!--      <IconLike class="info__like" filled />-->
     </div>
   </div>
 </template>
@@ -243,6 +159,7 @@ onMounted(() => {
   flex-direction: column
   gap: 30px
   justify-content: space-between
+  width: 100%
 
 .info__blocks
   display: flex

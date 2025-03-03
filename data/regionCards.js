@@ -5,7 +5,8 @@ export const RegionDataCard = [
         slug: 'chelyabinskaya-oblast',
         tag: {
             color: '#F57C00',
-            text: 'Уральский'
+            text: 'Уральский',
+            slug: 'uralskij'
         }
     },
     {
@@ -14,7 +15,8 @@ export const RegionDataCard = [
         slug: 'tomskaya-oblast',
         tag: {
             color: '#388E3C',
-            text: 'Сибирский'
+            text: 'Сибирский',
+            slug: 'sibirskij'
         }
     },
     {
@@ -23,7 +25,8 @@ export const RegionDataCard = [
         slug: 'hmao-yugra',
         tag: {
             color: '#F57C00',
-            text: 'Уральский'
+            text: 'Уральский',
+            slug: 'uralskij'
         }
     },
     {
@@ -32,7 +35,8 @@ export const RegionDataCard = [
         slug: 'respublika-tatarstan',
         tag: {
             color: '#0070ff',
-            text: 'Приволжский'
+            text: 'Приволжский',
+            slug: 'privolzhskij'
         }
     },
     {
@@ -41,7 +45,8 @@ export const RegionDataCard = [
         slug: 'kamchatskiy-kraj',
         tag: {
             color: '#6495ed',
-            text: 'Дальневосточный'
+            text: 'Дальневосточный',
+            slug: 'dalnevoshtonij'
         }
     },
     {
@@ -50,7 +55,8 @@ export const RegionDataCard = [
         slug: 'krasnodarskiy-kraj',
         tag: {
             color: '#FBC02D',
-            text: 'Южный'
+            text: 'Южный',
+            slug: 'yuzhnyj'
         }
     },
     {
@@ -59,7 +65,8 @@ export const RegionDataCard = [
         slug: 'respublika-altay',
         tag: {
             color: '#388E3C',
-            text: 'Сибирский'
+            text: 'Сибирский',
+            slug: 'sibirskij'
         }
     },
     {
@@ -68,7 +75,8 @@ export const RegionDataCard = [
         slug: 'kemerovskaya-oblast',
         tag: {
             color: '#388E3C',
-            text: 'Сибирский'
+            text: 'Сибирский',
+            slug: 'sibirskij'
         }
     },
     {
@@ -77,7 +85,8 @@ export const RegionDataCard = [
         slug: 'sankt-peterburg',
         tag: {
             color: '#673AB7',
-            text: 'Северо-Западный'
+            text: 'Северо-Западный',
+            slug: 'severo-zapadnyj'
         }
     },
     {
@@ -86,7 +95,8 @@ export const RegionDataCard = [
         slug: 'primorskiy-kraj',
         tag: {
             color: '#6495ed',
-            text: 'Дальневосточный'
+            text: 'Дальневосточный',
+            slug: 'dalnevoshtonij'
         }
     },
     {
@@ -95,7 +105,8 @@ export const RegionDataCard = [
         slug: 'irkutskaya-oblast',
         tag: {
             color: '#388E3C',
-            text: 'Сибирский'
+            text: 'Сибирский',
+            slug: 'sibirskij'
         }
     },
     {
@@ -104,7 +115,8 @@ export const RegionDataCard = [
         slug: 'krasnoyarskiy-kraj',
         tag: {
             color: '#388E3C',
-            text: 'Сибирский'
+            text: 'Сибирский',
+            slug: 'sibirskij'
         }
     },
     {
@@ -113,7 +125,8 @@ export const RegionDataCard = [
         slug: 'respublika-komi',
         tag: {
             color: '#673AB7',
-            text: 'Северо-Западный'
+            text: 'Северо-Западный',
+            slug: 'severo-zapadnyj'
         }
     },
     {
@@ -122,7 +135,8 @@ export const RegionDataCard = [
         slug: 'respublika-karelia',
         tag: {
             color: '#673AB7',
-            text: 'Северо-Западный'
+            text: 'Северо-Западный',
+            slug: 'severo-zapadnyj'
         }
     }
 ];
