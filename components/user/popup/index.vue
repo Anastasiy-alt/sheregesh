@@ -1,7 +1,8 @@
 <script lang="ts" setup>
-const props = defineProps({
-  close: Function
-})
+const props = defineProps<{
+  close: () => void;
+  name: string
+}>()
 const uploadPhoto = ref<boolean>(false)
 const sucsessSubmit = ref<boolean>(false)
 
@@ -15,31 +16,7 @@ const back = () => {
 }
 
 const submitImages = async () => {
-  // const payload = images.value.map(image => ({
-  //   image: image.url,
-  //   description: image.description
-  // }));
   sucsessSubmit.value = true
-
-
-  // try {
-  //   const response = await fetch('https://your-api-endpoint.com/upload', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify(payload),
-  //   });
-  //
-  //   if (!response.ok) {
-  //     throw new Error('Error uploading images');
-  //   }
-  //
-  //   alert('Images uploaded successfully');
-  //   images.value = []; // Очищаем массив изображений после успешной загрузки
-  // } catch (error) {
-  //   alert(`Upload failed: ${error.message}`);
-  // }
 };
 
 </script>
@@ -49,7 +26,7 @@ const submitImages = async () => {
   <div :class="[{'popup_upload' : uploadPhoto}, {'popup_suc' : !sucsessSubmit && uploadPhoto}]" class="popup">
     <IconPlus v-if="!uploadPhoto" class="popup__icon" filled @click="close"/>
     <IconArrowLine v-if="uploadPhoto && !sucsessSubmit" class="popup__icon popup__icon_arrow" filled @click="back"/>
-    <UserPopupText v-if="!uploadPhoto" :close="close" :upload="upload"/>
+    <UserPopupText v-if="!uploadPhoto" :upload="upload" :name="name"/>
     <UserPopupUpload v-if="uploadPhoto" :close="close"
                      :submitImages="submitImages"
                      :sucsessSubmit="sucsessSubmit"/>
@@ -81,6 +58,7 @@ const submitImages = async () => {
   position: absolute
   top: 24px
   left: 24px
+  @include transition
 
 .popup
   padding: 80px 100px
@@ -112,4 +90,8 @@ const submitImages = async () => {
 
 .popup_suc
   padding: 24px
+
+@include hover
+  .popup__icon:hover
+    transform: rotate(135deg)
 </style>

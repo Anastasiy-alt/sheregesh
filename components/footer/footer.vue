@@ -1,5 +1,5 @@
-<script setup>
-
+<script setup lang="ts">
+const route = useRoute()
 </script>
 
 <template>
@@ -8,9 +8,9 @@
     <IconLogoWhite class="footer__logo" filled/>
   </NuxtLink>
   <nav class="footer__nav">
-    <NuxtLink to="/photobank" class="footer__nav-link">Фотобанк</NuxtLink>
-    <NuxtLink to="/challenges" class="footer__nav-link">Челленджи</NuxtLink>
-    <NuxtLink to="/user" class="footer__nav-link">Профиль</NuxtLink>
+    <NuxtLink to="/photobank/all" :class="['footer__nav-link', {'footer__nav-link_active' : route.path.includes('/photo')}]">Фотобанк</NuxtLink>
+    <NuxtLink to="/challenges" :class="['footer__nav-link', {'footer__nav-link_active' : route.path.includes('/challenges')}]">Челленджи</NuxtLink>
+<!--    <NuxtLink to="/user" class="footer__nav-link">Профиль</NuxtLink>-->
   </nav>
 </footer>
 </template>
@@ -32,6 +32,7 @@
   display: flex
   flex-direction: row
   gap: 40px
+  align-items: flex-start
 
 .footer__logo
   width: 167px
@@ -43,4 +44,14 @@
   @include font-styles(20px, 400, 24px)
   color: $white
   text-decoration: none
+  @include transition
+  border-bottom: 2px solid transparent
+  padding-bottom: 5px
+
+.footer__nav-link_active
+  border-bottom: 2px solid $white
+
+@include hover
+  .footer__nav-link:hover
+    border-bottom: 2px solid $white
 </style>

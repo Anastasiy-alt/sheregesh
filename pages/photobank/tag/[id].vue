@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+ <script lang="ts" setup>
 import {PhotoCards, HashtagsData} from '~/data'
 
 interface Tag {
@@ -34,7 +34,9 @@ onMounted(async () => {
 
     <div class="photobank__header">
       <div class="photobank__title-block">
-        <IconBackArrow class="photobank__back-icon" filled @click="router.back()"/>
+        <button class="photobank__button" @click="router.back()">
+          <IconBackArrow class="photobank__back-icon" filled/>
+        </button>
         <h1 class="photobank__title">
           #{{ activeTag.title }}
         </h1>

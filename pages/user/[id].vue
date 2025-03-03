@@ -47,7 +47,7 @@ onMounted(() => {
         :trips="user.trips"/>
     <UserAwards :awards="user.awards"/>
   </div>
-  <UserPhotos v-if="user" :photos="user.photos"/>
+  <UserPhotos v-if="user" :photos="user.photos" :name="user.name"/>
 </template>
 
 <style lang="sass">

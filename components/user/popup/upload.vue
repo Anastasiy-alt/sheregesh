@@ -6,8 +6,8 @@ const props = defineProps<{
 }>();
 const images = ref<{ url: string; description: string }[]>([]);
 const fileInput = ref<HTMLInputElement | null>(null);
-const maxImages = 3;
-const maxSize = 5 * 1024 * 1024; // Максимальный размер файла 5MB
+const maxImages = 1;
+const maxSize = 5 * 1024 * 1024;
 const trip = ref<string>('')
 const region = ref<string>('')
 const place = ref<string>('')
@@ -15,7 +15,7 @@ const formData = ref<{ trip: string; region: string; place: string }>({
   trip: '',
   region: '',
   place: '',
-});;
+});
 const check = ref<boolean>(false)
 const onFileChange = (event: Event) => {
   const target = event.target as HTMLInputElement;
@@ -82,9 +82,9 @@ watch(() => [formData.value.trip, formData.value.region, formData.value.place], 
     <div v-if="!images.length" class="upload__block">
       <img alt="" class="upload__img" src="@/assets/img/purple-bear.png">
       <p class="upload__title">Загрузить фотографию </p>
-      <p class="upload__subtitle">Перетащите сюда до 3 фотографий или
-        <span class="link" @click="selectFiles">загрузите</span> их с компьютера</p>
-      <p class="upload__subsubtitle">JPEG до 20 Мб</p>
+      <p class="upload__subtitle">Перетащите сюда фотографию или
+        <span class="link" @click="selectFiles">загрузите</span> с компьютера</p>
+      <p class="upload__subsubtitle">JPEG до 5 Мб</p>
       <input
           ref="fileInput"
           accept="image/*"
@@ -94,13 +94,11 @@ watch(() => [formData.value.trip, formData.value.region, formData.value.place], 
           @change="onFileChange"
       />
       <ul class="upload__parameters">
-        <li class="upload__par">Недопустимы темные пятна и пересветы</li>
         <li class="upload__par">При 100% увеличении не должно быть заметного цифрового шума, зерна и артефактов сжатия
         </li>
         <li class="upload__par">На фотографиях не должно быть хроматических аберраций, следов от пыли и прочих
           загрязнений
         </li>
-        <li class="upload__par">Соответствие <span class="link">условиям ТРОПЫ</span></li>
         <li class="upload__par">Не должно быть никаких дат, подписей, копирайтов, рамочек, бордюров</li>
         <li class="upload__par">Фотографии должны иметь правильную ориентацию по вертикали/горизонтали</li>
       </ul>

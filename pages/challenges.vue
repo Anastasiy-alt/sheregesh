@@ -7,10 +7,9 @@
     <div class="err__text-block">
       <p class="err__text-green">404</p>
       <p class="err__main-text">Куда ты, тропа, меня завела?</p>
-      <p class="err__subtitle-text">Страница станет доступной после форума «Шерегеш»</p>
+      <p class="err__subtitle-text">Страница так и не станет доступной после форума «Шерегеш»...</p>
       <NuxtLink to="/" class="err__link">
         <ElementsButton :text="'Вернуться на тропу'" :white="true"/>
-
       </NuxtLink>
     </div>
     <img src="@/assets/img/404.png" class="err__img" alt="">

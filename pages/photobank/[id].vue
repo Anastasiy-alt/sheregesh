@@ -53,6 +53,17 @@ const getTopTagsObjects = (tags: Array<Tag>, topCount: number) => {
 onMounted(async () => {
   getData(String(route?.params?.id))
 });
+const load = ref<boolean>(true)
+watch(() => router.currentRoute.value.query, async (value) => {
+      load.value = false;
+      photos.value = PhotoCards.filter(e => region.value?.slug === e.regionId);
+      if (value.tag) {
+        photos.value = photos.value.filter(e => e.tags.find(tag => value.tag?.includes(tag.slug))!);
+      }
+      await nextTick();
+      load.value = true;
+    }
+);
 
 </script>
 

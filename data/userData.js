@@ -179,7 +179,7 @@ export const UserData = [
         avatar: 'https://images.unsplash.com/photo-1516831906352-1623190ca036?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         trips: '4 поездки',
         city: 'Челябинск',
-        old: '19',
+        old: '19 лет',
         quote: 'Можно всю жизнь прождать подходящий момент и в итоге так и не сказать друг другу что-то важное',
         photos: [
             {
@@ -531,7 +531,7 @@ export const UserData = [
         trips: '12 поездок',
         city: 'Ханты-Мансийск',
         quote: 'А всё-таки, наверно, хорошо знать, что там, где горит свет, кто-то может сидеть и думать о тебе',
-        old: '25',
+        old: '25 лет',
         photos: [
             {
                 id: '128',

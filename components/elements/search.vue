@@ -5,9 +5,16 @@ const router = useRouter()
 
 function formSubmit(evt: Event) {
   evt.preventDefault()
-  router.push({
-    query: {q: search.value}
-  })
+  let query = router.currentRoute.value.query.federal
+  if (query) {
+    router.push({
+      query: {q: search.value , federal: query}
+    })
+  } else {
+    router.push({
+      query: {q: search.value}
+    })
+  }
 }
 
 onMounted(() => {

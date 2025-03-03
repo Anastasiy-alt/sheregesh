@@ -32,7 +32,9 @@ const onSwiper = (instance: object) => {
       class="ph-det__swiper"
       @swiper="onSwiper">
     <SwiperSlide v-for="(item, idx) in photos" :key="idx" class="ph-det__slide">
-      <img :alt="item.text" :src="item.img" class="ph-det__slide-img">
+      <NuxtLink :to="`/photo/${item.id}`" class="ph-det__slide-link">
+        <img :alt="item.text" :src="item.img" class="ph-det__slide-img">
+      </NuxtLink>
     </SwiperSlide>
   </Swiper>
 </template>
@@ -48,13 +50,14 @@ const onSwiper = (instance: object) => {
   @include font-styles(32px, 500, 39px)
 
 .ph-det__swiper
-  max-width: 90vw
+  max-width: 100%
   overflow: hidden
 
 .ph-det__slide
   position: relative
   width: fit-content
   cursor: pointer
+  border-radius: 15px
 
 .ph-det__slide-img
   width: 288px
@@ -63,17 +66,27 @@ const onSwiper = (instance: object) => {
   border-radius: 15px
   overflow: hidden
 
-.ph-det__slide::before
+.ph-det__slide-link
+  border-radius: 15px
+  width: fit-content
+  height: fit-content
+  display: flex
+  background-color: transparent
+  @include transition
+  position: relative
+
+.ph-det__slide-link::before
   content: ''
   width: 100%
   height: 100%
   position: absolute
   left: 0
   top: 0
+  border-radius: 15px
   background-color: transparent
   @include transition
 
 @include hover
-  .ph-det__slide:hover::before
-    background-color: $hover-gray
+  .ph-det__slide:hover .ph-det__slide-link::before
+    background-color: $hover-card
 </style>

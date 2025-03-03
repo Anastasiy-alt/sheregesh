@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-// const menu = menuStore()
 const route = useRoute()
 const show = ref<boolean>(false)
 

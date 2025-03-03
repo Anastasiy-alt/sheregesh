@@ -26,6 +26,7 @@ html, body
   font-style: normal
   line-height: normal
   scroll-behavior: smooth
+  //scrollbar-gutter: stable
 
 #__nuxt
   display: flex
@@ -42,6 +43,7 @@ html, body
   flex: 0 0 auto
   padding: 90px 100px 80px
   align-items: center
+
 
 .nuxt-icon
   vertical-align: baseline !important

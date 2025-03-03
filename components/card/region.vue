@@ -10,12 +10,20 @@ const props = defineProps<{
   tag: Tag,
   link: string
 }>()
+const isLoaded = ref<boolean>(false);
+const router = useRouter()
+const onLoad = () => {
+  isLoaded.value = true;
+};
+watch(() => router.currentRoute.value.query, () => {
+  isLoaded.value = false;
+});
 
 </script>
 
 <template>
-<NuxtLink class="card-reg" :to='`/photobank/${link}`'>
-  <img :src="img" :alt="text"
+<NuxtLink class="card-reg" :to='`/photobank/${link}`' :class="{'card-reg_load' : !isLoaded}">
+  <img :src="img" @load="onLoad" :alt="text"
        class="card-reg__img">
   <p class="card-reg__title">{{ text }}</p>
   <div class="card-reg__tag">
@@ -64,7 +72,7 @@ const props = defineProps<{
   position: absolute
   left: 0
   top: 0
-  background-color: transparent
+  background: linear-gradient(0deg, $green-dark 0%, rgba(255,255,255,0) 50%)
   @include transition
 
 .card-reg__img
@@ -83,6 +91,20 @@ const props = defineProps<{
   bottom: 22px
   left: 0
   box-sizing: border-box
+
+.card-reg_load
+  background: $green
+
+.card-reg_load::after
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  transform: translateX(-100%)
+  background-image: linear-gradient(90deg,rgba(#fff, 0) 0,rgba(#fff, 0.2) 20%,rgba(#fff, 0.5) 60%,rgba(#fff, 0))
+  animation: shimmer 2s infinite
+  content: ''
 
 @include hover
   .card-reg:hover::before

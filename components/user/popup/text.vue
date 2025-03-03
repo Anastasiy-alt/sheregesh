@@ -1,22 +1,23 @@
 <script lang="ts" setup>
-const props = defineProps({
-  upload: Function
-})
+const props = defineProps<{
+  upload: () => void
+  name: string
+}>()
 
 const checkboxChecked = ref<boolean>(false)
 
 </script>
 
 <template>
-  <p class="popup__title">Привет, Мария!</p>
+  <p class="popup__title">Привет, {{name}}!</p>
   <div class="popup__text-block">
     <p class="popup__text">Мы рады, что вы стали участником(цей) программы «Больше чем Путешествие»!</p>
     <p class="popup__text">Чтобы удачно загрузить фотографию на ТРОПУ, пожалуйста убедитесь, что ваша фотография
-      отвечает <span class="link">требованиям подачи фотографий.</span></p>
+      отвечает <a class="link">требованиям подачи фотографий.</a></p>
     <p class="popup__text"><span class="green">Примечание:</span> каждое изображение на ТРОПЕ публикуется по лицензии
       ТРОПЫ, которая позволяет людям использовать изображения из нашего фотостока бесплатно, в том числе в
       коммерческих целях, без указания автора на ресурсе. </p>
-    <p class="popup__text link">Ознакомиться с лицензионным соглашением</p>
+    <a class="popup__text link">Ознакомиться с лицензионным соглашением</a>
   </div>
   <form class="popup__form">
     <label :class="{ 'label-cian': checkboxChecked }" class="checkbox__label">

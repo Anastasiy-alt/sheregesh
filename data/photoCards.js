@@ -6,6 +6,7 @@ export const PhotoCards = [
         regionId: 'respublika-altay',
         location: 'Мультинские озёра',
         description: '',
+        trip: 'Тропа шаманов',
         tags: [
             {
                 title: 'озеро',
@@ -22,7 +23,6 @@ export const PhotoCards = [
             id: '2',
             name: 'Влад',
             avatar: 'https://images.unsplash.com/photo-1516831906352-1623190ca036?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-
             trips: '4 поездки'
         }
     },
@@ -33,6 +33,7 @@ export const PhotoCards = [
         regionId: 'respublika-altay',
         location: 'Чуйский тракт',
         description: '',
+        trip: 'Тропа шаманов',
         tags: [
             {
                 title: 'горы',
@@ -45,7 +46,6 @@ export const PhotoCards = [
             id: '4',
             name: 'Евгения',
             avatar: 'https://images.unsplash.com/photo-1629185753060-6036205bbc02?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-
             trips: '12 поездок'
         }
     }
@@ -57,6 +57,7 @@ export const PhotoCards = [
         regionId: 'krasnodarskiy-kraj',
         location: 'Кавказский заповедник',
         description: '',
+        trip: 'Лазурный берег и природа Краснодарского края',
         tags: [
             {
                 title: 'животные',
@@ -89,6 +90,7 @@ export const PhotoCards = [
         regionId: 'krasnodarskiy-kraj',
         location: 'Красная поляна',
         description: '',
+        trip: 'Горы и виноградники: взгляд с Кавказа',
         tags: [
             {
                 title: 'горы',
@@ -113,6 +115,7 @@ export const PhotoCards = [
         regionId: 'respublika-tatarstan',
         location: 'Дворец земледельцев',
         description: '',
+        trip: 'Древняя столица Татарстана: Казань',
         tags: [
             {
                 title: 'архитектура',
@@ -137,6 +140,7 @@ export const PhotoCards = [
         regionId: 'respublika-tatarstan',
         location: 'Храм всех религий',
         description: '',
+        trip: 'Древняя столица Татарстана: Казань',
         tags: [
             {
                 title: 'архитектура',
@@ -161,6 +165,7 @@ export const PhotoCards = [
         regionId: 'kamchatskiy-kraj',
         location: 'Авачинская сопка',
         description: '',
+        trip: 'На краю света: Камчатка',
         tags: [
             {
                 title: 'горы',
@@ -188,6 +193,7 @@ export const PhotoCards = [
         regionId: 'kamchatskiy-kraj',
         location: 'Петропавловск-Камчатский',
         description: '',
+        trip: 'Сибирские звери и вулканы Камчатки',
         tags: [
             {
                 title: 'животные',
@@ -211,6 +217,7 @@ export const PhotoCards = [
         regionId: 'kamchatskiy-kraj',
         location: 'Авачинская бухта',
         description: '',
+        trip: 'На краю света: Камчатка',
         tags: [
             {
                 title: 'природа',
@@ -238,6 +245,7 @@ export const PhotoCards = [
         regionId: 'krasnodarskiy-kraj',
         location: 'Роза Хутор',
         description: '',
+        trip: 'Горы и виноградники: взгляд с Кавказа',
         tags: [
             {
                 title: 'природа',
@@ -261,6 +269,7 @@ export const PhotoCards = [
         regionId: 'respublika-tatarstan',
         location: 'Дворец земледельцев',
         description: '',
+        trip: 'Татарская культура: от Казани до Сарытау',
         tags: [
             {
                 title: 'архитектура',
@@ -284,6 +293,7 @@ export const PhotoCards = [
         regionId: 'respublika-tatarstan',
         location: 'Дворец земледельцев',
         description: '',
+        trip: 'Древняя столица Татарстана: Казань',
         tags: [
             {
                 title: 'архитектура',
@@ -305,8 +315,9 @@ export const PhotoCards = [
         img: 'https://images.unsplash.com/photo-1557279677-eb539781c91a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         region: 'Камчатский край',
         regionId: 'kamchatskiy-kraj',
-        location: 'озеро Байкал',
+        location: 'Петропавловск-Камчатский',
         description: '',
+        trip: 'Сибирские звери и вулканы Камчатки',
         tags: [
             {
                 title: 'животные',
@@ -330,6 +341,7 @@ export const PhotoCards = [
         regionId: 'krasnodarskiy-kraj',
         location: 'Кавказские горы',
         description: '',
+        trip: 'Горы и виноградники: взгляд с Кавказа',
         tags: [
             {
                 title: 'горы',
@@ -357,6 +369,7 @@ export const PhotoCards = [
         regionId: 'sankt-peterburg',
         location: 'Медный всадник',
         description: '',
+        trip: 'Загадки и тайны Северной Венеции',
         tags: [
             {
                 title: 'зима',
@@ -384,6 +397,7 @@ export const PhotoCards = [
         regionId: 'irkutskaya-oblast',
         location: 'озеро Байкал',
         description: '',
+        trip: 'По озеру Байкал: от берегов до тайги',
         tags: [
             {
                 title: 'озеро',
@@ -411,6 +425,7 @@ export const PhotoCards = [
         regionId: 'irkutskaya-oblast',
         location: 'озеро Байкал, Скала Шаманка',
         description: '',
+        trip: 'По озеру Байкал: от берегов до тайги',
         tags: [
             {
                 title: 'зима',
@@ -442,6 +457,7 @@ export const PhotoCards = [
         regionId: 'irkutskaya-oblast',
         location: 'озеро Байкал, Хужир',
         description: '',
+        trip: 'По озеру Байкал: от берегов до тайги',
         tags: [
             {
                 title: 'зима',
@@ -469,6 +485,7 @@ export const PhotoCards = [
         regionId: 'sankt-peterburg',
         location: 'Зимний дворец',
         description: '',
+        trip: 'Величие дворцов и мостов Санкт-Петербурга',
         tags: [
             {
                 title: 'река',
@@ -500,6 +517,7 @@ export const PhotoCards = [
         regionId: 'irkutskaya-oblast',
         location: 'Остров Ольхон, озеро Байкал',
         description: '',
+        trip: 'По озеру Байкал: от берегов до тайги',
         tags: [
             {
                 title: 'птицы',
@@ -527,6 +545,7 @@ export const PhotoCards = [
         regionId: 'sankt-peterburg',
         location: 'Исаакиевский собор',
         description: '',
+        trip: 'Величие дворцов и мостов Санкт-Петербурга',
         tags: [
             {
                 title: 'архитектура',
@@ -554,6 +573,7 @@ export const PhotoCards = [
         regionId: 'hmao-yugra',
         location: 'Стойбище',
         description: '',
+        trip: 'Легенды северных рек Югры',
         tags: [
             {
                 title: 'рассвет',
@@ -581,6 +601,7 @@ export const PhotoCards = [
         regionId: 'hmao-yugra',
         location: 'Дремучий лес',
         description: '',
+        trip: 'Тундра и тайга: путешествие по Югре',
         tags: [
             {
                 title: 'тайга',
@@ -612,6 +633,7 @@ export const PhotoCards = [
         regionId: 'sankt-peterburg',
         location: 'Ботанический сад',
         description: '',
+        trip: 'Загадки и тайны Северной Венеции',
         tags: [
             {
                 title: 'цветы',
@@ -635,6 +657,7 @@ export const PhotoCards = [
         regionId: 'sankt-peterburg',
         location: 'Эрмитаж',
         description: '',
+        trip: 'Величие дворцов и мостов Санкт-Петербурга',
         tags: [
             {
                 title: 'архитектура',
@@ -658,6 +681,7 @@ export const PhotoCards = [
         regionId: 'respublika-altay',
         location: 'Телецкое озеро',
         description: '',
+        trip: 'Алтай: живописные озера и тайга',
         tags: [
             {
                 title: 'горы',
@@ -685,6 +709,7 @@ export const PhotoCards = [
         regionId: 'primorskiy-kraj',
         location: 'Маяк Токаревского',
         description: '',
+        trip: 'Приморье: от японского моря до Ханкайского залива',
         tags: [
             {
                 title: 'ночь',
@@ -712,6 +737,7 @@ export const PhotoCards = [
         regionId: 'primorskiy-kraj',
         location: 'Мыс Гамова',
         description: '',
+        trip: 'Приморье: от японского моря до Ханкайского залива',
         tags: [
             {
                 title: 'море',
@@ -739,6 +765,7 @@ export const PhotoCards = [
         regionId: 'respublika-altay',
         location: 'Шавлинские озёра',
         description: '',
+        trip: 'Алтай: живописные озера и тайга',
         tags: [
             {
                 title: 'горы',
@@ -766,6 +793,7 @@ export const PhotoCards = [
         regionId: 'respublika-altay',
         location: 'Шавлинское верхнее озеро',
         description: '',
+        trip: 'Алтай: живописные озера и тайга',
         tags: [
             {
                 title: 'горы',
@@ -797,6 +825,7 @@ export const PhotoCards = [
         regionId: 'primorskiy-kraj',
         location: 'В лесах Приморского края',
         description: '',
+        trip: 'По следам тигров Приморского края',
         tags: [
             {
                 title: 'цветы',
@@ -824,6 +853,7 @@ export const PhotoCards = [
         regionId: 'irkutskaya-oblast',
         location: 'В лесах Иркутской области',
         description: '',
+        trip: 'Древний Иркутск: путешествие в сердце Сибири',
         tags: [
             {
                 title: 'лес',
@@ -847,6 +877,7 @@ export const PhotoCards = [
         regionId: 'chelyabinskaya-oblast',
         location: 'Миасс',
         description: '',
+        trip: 'Вершины Урала: приключение для смелых',
         tags: [
             {
                 title: 'лес',
@@ -873,6 +904,7 @@ export const PhotoCards = [
         regionId: 'respublika-altay',
         location: 'Телецкое озеро',
         description: '',
+        trip: 'Алтай: живописные озера и тайга',
         tags: [
             {
                 title: 'лес',
@@ -900,6 +932,7 @@ export const PhotoCards = [
         regionId: 'respublika-altay',
         location: 'Гора Актуру',
         description: '',
+        trip: 'Алтай: горные просторы и древние легенды',
         tags: [
             {
                 title: 'горы',
@@ -926,6 +959,7 @@ export const PhotoCards = [
         regionId: 'respublika-altay',
         location: 'Река Катунь',
         description: '',
+        trip: 'Тропа шаманов Алтая',
         tags: [
             {
                 title: 'зима',
@@ -954,6 +988,7 @@ export const PhotoCards = [
         regionId: 'tomskaya-oblast',
         location: 'В лесах Томской области',
         description: '',
+        trip: 'По следам древних народов Сибири',
         tags: [
             {
                 title: 'лес',
@@ -980,6 +1015,7 @@ export const PhotoCards = [
         regionId: 'primorskiy-kraj',
         location: 'Находка',
         description: '',
+        trip: 'Приморье: от японского моря до Ханкайского залива',
         tags: [
             {
                 title: 'море',
@@ -1003,6 +1039,7 @@ export const PhotoCards = [
         regionId: 'irkutskaya-oblast',
         location: 'Ангарская деревня',
         description: '',
+        trip: 'Древний Иркутск: путешествие в сердце Сибири',
         tags: [
             {
                 title: 'лес',
@@ -1026,6 +1063,7 @@ export const PhotoCards = [
         regionId: 'tomskaya-oblast',
         location: 'В лесах Томской области',
         description: '',
+        trip: 'По следам древних народов Сибири',
         tags: [
             {
                 title: 'лес',
@@ -1054,6 +1092,7 @@ export const PhotoCards = [
         regionId: 'tomskaya-oblast',
         location: 'Тимирязевское',
         description: '',
+        trip: 'Сибирская гармония: Томская глубинка',
         tags: [
             {
                 title: 'зима',
@@ -1080,6 +1119,7 @@ export const PhotoCards = [
         regionId: 'primorskiy-kraj',
         location: 'Заповедник',
         description: '',
+        trip: 'По следам тигров Приморского края',
         tags: [
             {
                 title: 'животные',
@@ -1103,6 +1143,7 @@ export const PhotoCards = [
         regionId: 'hmao-yugra',
         location: 'Дремучий лес',
         description: '',
+        trip: 'Тундра и тайга: путешествие по Югре',
         tags: [
             {
                 title: 'зима',
@@ -1133,6 +1174,7 @@ export const PhotoCards = [
         regionId: 'kemerovskaya-oblast',
         location: 'Шерегеш',
         description: '',
+        trip: 'Путеводитель по Кузбассу',
         tags: [
             {
                 title: 'зима',
@@ -1159,6 +1201,7 @@ export const PhotoCards = [
         regionId: 'kemerovskaya-oblast',
         location: 'Шерегеш',
         description: '',
+        trip: 'Путеводитель по Кузбассу',
         tags: [
             {
                 title: 'горы',
@@ -1182,6 +1225,7 @@ export const PhotoCards = [
         regionId: 'primorskiy-kraj',
         location: 'Мыс Лисученко',
         description: '',
+        trip: 'По следам тигров Приморского края',
         tags: [
             {
                 title: 'природа',
@@ -1208,6 +1252,7 @@ export const PhotoCards = [
         regionId: 'chelyabinskaya-oblast',
         location: 'Миасс',
         description: '',
+        trip: 'Вершины Урала: приключение для смелых',
         tags: [
             {
                 title: 'осень',
@@ -1234,6 +1279,7 @@ export const PhotoCards = [
         regionId: 'chelyabinskaya-oblast',
         location: 'В лесу Челябинской области',
         description: '',
+        trip: 'Зимняя сказка Южного Урала',
         tags: [
             {
                 title: 'зима',
@@ -1260,6 +1306,7 @@ export const PhotoCards = [
         regionId: 'kemerovskaya-oblast',
         location: 'Шерегеш',
         description: '',
+        trip: 'Путеводитель по Кузбассу',
         tags: [
             {
                 title: 'горы',
@@ -1289,6 +1336,7 @@ export const PhotoCards = [
         regionId: 'kemerovskaya-oblast',
         location: 'Шерегеш',
         description: '',
+        trip: 'От шахт до горных вершин Кемеровской области',
         tags: [
             {
                 title: 'лес',
@@ -1316,6 +1364,7 @@ export const PhotoCards = [
         regionId: 'respublika-tatarstan',
         location: 'Александровский пассаж, Казань',
         description: '',
+        trip: 'Татарская культура: от Казани до Сарытау',
         tags: [
             {
                 title: 'архитектура',
@@ -1339,6 +1388,7 @@ export const PhotoCards = [
         regionId: 'chelyabinskaya-oblast',
         location: 'В лесу Челябинска',
         description: '',
+        trip: 'Зимняя сказка Южного Урала',
         tags: [
             {
                 title: 'зима',
@@ -1365,6 +1415,7 @@ export const PhotoCards = [
         regionId: 'chelyabinskaya-oblast',
         location: 'Таганай',
         description: '',
+        trip: 'Экспедиция по Уральскому хребту',
         tags: [
             {
                 title: 'природа',
@@ -1388,6 +1439,7 @@ export const PhotoCards = [
         regionId: 'tomskaya-oblast',
         location: 'В лесах Томской области',
         description: '',
+        trip: 'Сибирская гармония: Томская глубинка',
         tags: [
             {
                 title: 'лес',
@@ -1410,6 +1462,7 @@ export const PhotoCards = [
         regionId: 'hmao-yugra',
         location: 'Тайга Югры',
         description: '',
+        trip: 'Тундра и тайга: путешествие по Югре',
         tags: [
             {
                 title: 'тайга',
@@ -1433,6 +1486,7 @@ export const PhotoCards = [
         regionId: 'respublika-tatarstan',
         location: 'Казань',
         description: '',
+        trip: 'Татарская культура: от Казани до Сарытау',
         tags: [
             {
                 title: 'архитектура',
@@ -1460,6 +1514,7 @@ export const PhotoCards = [
         regionId: 'respublika-altay',
         location: 'Горы Алтая',
         description: '',
+        trip: 'Алтай: горные просторы и древние легенды',
         tags: [
             {
                 title: 'природа',
@@ -1486,6 +1541,7 @@ export const PhotoCards = [
         regionId: 'kemerovskaya-oblast',
         location: 'Шерегеш',
         description: '',
+        trip: 'От шахт до горных вершин Кемеровской области',
         tags: [
             {
                 title: 'горы',
@@ -1514,6 +1570,7 @@ export const PhotoCards = [
         regionId: 'sankt-peterburg',
         location: 'Казанский собор',
         description: '',
+        trip: 'Загадки и тайны Северной Венеции',
         tags: [
             {
                 title: 'архитектура',
@@ -1537,6 +1594,7 @@ export const PhotoCards = [
         regionId: 'primorskiy-kraj',
         location: 'Владивосток',
         description: '',
+        trip: 'Приморье: от японского моря до Ханкайского залива',
         tags: [
             {
                 title: 'архитектура',
@@ -1568,6 +1626,7 @@ export const PhotoCards = [
         regionId: 'irkutskaya-oblast',
         location: 'Остров Ольхон, озеро Байкал',
         description: '',
+        trip: 'По озеру Байкал: от берегов до тайги',
         tags: [
             {
                 title: 'природа',
@@ -1591,6 +1650,7 @@ export const PhotoCards = [
         regionId: 'kamchatskiy-kraj',
         location: 'Горы Камчатки',
         description: '',
+        trip: 'На краю света: Камчатка',
         tags: [
             {
                 title: 'горы',
@@ -1617,6 +1677,7 @@ export const PhotoCards = [
         regionId: 'respublika-altay',
         location: 'река Кучерла',
         description: '',
+        trip: 'Алтай: живописные озера и тайга',
         tags: [
             {
                 title: 'горы',
@@ -1645,6 +1706,7 @@ export const PhotoCards = [
         regionId: 'irkutskaya-oblast',
         location: 'озеро Байкал',
         description: '',
+        trip: 'Древний Иркутск: путешествие в сердце Сибири',
         tags: [
             {
                 title: 'озеро',
@@ -1673,6 +1735,7 @@ export const PhotoCards = [
         regionId: 'kemerovskaya-oblast',
         location: 'Прокопьевск',
         description: '',
+        trip: 'Путеводитель по Кузбассу',
         tags: [
             {
                 title: 'лес',
@@ -1695,6 +1758,7 @@ export const PhotoCards = [
         regionId: 'krasnoyarskiy-kraj',
         location: 'В лесах Красноярского края',
         description: '',
+        trip: 'Красноярский край: от степей до ледников',
         tags: [
             {
                 title: 'туман',
@@ -1720,6 +1784,7 @@ export const PhotoCards = [
         regionId: 'krasnoyarskiy-kraj',
         location: 'В лесах Красноярского края',
         description: '',
+        trip: 'Красноярский край: от степей до ледников',
         tags: [
             {
                 title: 'озеро',
@@ -1745,6 +1810,7 @@ export const PhotoCards = [
         regionId: 'krasnoyarskiy-kraj',
         location: 'В лесах Красноярского края',
         description: '',
+        trip: 'Красноярский край: от степей до ледников',
         tags: [
             {
                 title: 'рассвет',
@@ -1770,6 +1836,7 @@ export const PhotoCards = [
         regionId: 'kamchatskiy-kraj',
         location: 'В лесах Камчатки',
         description: '',
+        trip: 'Сибирские звери и вулканы Камчатки',
         tags: [
             {
                 title: 'река',
@@ -1795,6 +1862,7 @@ export const PhotoCards = [
         regionId: 'kamchatskiy-kraj',
         location: 'Петропавловск-Камчатский',
         description: '',
+        trip: 'Тропами Камчатки: от вулканов до океана',
         tags: [
             {
                 title: 'река',
@@ -1817,6 +1885,7 @@ export const PhotoCards = [
         regionId: 'kamchatskiy-kraj',
         location: 'Полуостров Камчатка',
         description: '',
+        trip: 'Тропами Камчатки: от вулканов до океана',
         tags: [
             {
                 title: 'горы',
@@ -1845,6 +1914,7 @@ export const PhotoCards = [
         regionId: 'kamchatskiy-kraj',
         location: 'В лесах Камчатки',
         description: '',
+        trip: 'Сибирские звери и вулканы Камчатки',
         tags: [
             {
                 title: 'животные',
@@ -1868,6 +1938,7 @@ export const PhotoCards = [
         regionId: 'kamchatskiy-kraj',
         location: 'Полуостров Камчатка',
         description: '',
+        trip: 'Сибирские звери и вулканы Камчатки',
         tags: [
             {
                 title: 'животные',
@@ -1895,6 +1966,7 @@ export const PhotoCards = [
         regionId: 'kamchatskiy-kraj',
         location: 'У берега',
         description: '',
+        trip: 'Тропами Камчатки: от вулканов до океана',
         tags: [
             {
                 title: 'природа',
@@ -1918,6 +1990,7 @@ export const PhotoCards = [
         regionId: 'kamchatskiy-kraj',
         location: 'Где-то в горах',
         description: '',
+        trip: 'На краю света: Камчатка',
         tags: [
             {
                 title: 'природа',
@@ -1947,6 +2020,7 @@ export const PhotoCards = [
         regionId: 'krasnodarskiy-kraj',
         location: 'Витязево',
         description: '',
+        trip: 'В поисках солнца: путешествие по Краснодарскому краю',
         tags: [
             {
                 title: 'лето',
@@ -1972,6 +2046,7 @@ export const PhotoCards = [
         regionId: 'krasnodarskiy-kraj',
         location: 'Анапа',
         description: '',
+        trip: 'В поисках солнца: путешествие по Краснодарскому краю',
         tags: [
             {
                 title: 'море',
@@ -1994,6 +2069,7 @@ export const PhotoCards = [
         regionId: 'krasnodarskiy-kraj',
         location: 'Геленджик',
         description: '',
+        trip: 'В поисках солнца: путешествие по Краснодарскому краю',
         tags: [
             {
                 title: 'природа',
@@ -2019,6 +2095,7 @@ export const PhotoCards = [
         regionId: 'krasnodarskiy-kraj',
         location: 'Роза Хутор',
         description: '',
+        trip: 'Горы и виноградники: взгляд с Кавказа',
         tags: [
             {
                 title: 'зима',
@@ -2044,6 +2121,7 @@ export const PhotoCards = [
         regionId: 'krasnodarskiy-kraj',
         location: 'Роза Хутор',
         description: '',
+        trip: 'Горы и виноградники: взгляд с Кавказа',
         tags: [
             {
                 title: 'ночь',
@@ -2072,6 +2150,7 @@ export const PhotoCards = [
         regionId: 'krasnodarskiy-kraj',
         location: 'Роза Пик',
         description: '',
+        trip: 'Горы и виноградники: взгляд с Кавказа',
         tags: [
             {
                 title: 'природа',
@@ -2100,6 +2179,7 @@ export const PhotoCards = [
         regionId: 'krasnodarskiy-kraj',
         location: 'Абрау-Дюрсо',
         description: '',
+        trip: 'Горы и виноградники: взгляд с Кавказа',
         tags: [
             {
                 title: 'природа',
@@ -2125,6 +2205,7 @@ export const PhotoCards = [
         regionId: 'krasnodarskiy-kraj',
         location: 'Абрау-Дюрсо',
         description: '',
+        trip: 'Горы и виноградники: взгляд с Кавказа',
         tags: [
             {
                 title: 'цветы',
@@ -2150,6 +2231,7 @@ export const PhotoCards = [
         regionId: 'krasnodarskiy-kraj',
         location: 'Геленджик',
         description: '',
+        trip: 'Лазурный берег и природа Краснодарского края',
         tags: [
             {
                 title: 'море',
@@ -2177,6 +2259,7 @@ export const PhotoCards = [
         regionId: 'krasnodarskiy-kraj',
         location: 'Парк водопадов "Менделиха"',
         description: '',
+        trip: 'Горы и виноградники: взгляд с Кавказа',
         tags: [
             {
                 title: 'туман',
@@ -2203,6 +2286,7 @@ export const PhotoCards = [
         regionId: 'krasnodarskiy-kraj',
         location: 'Джанкой',
         description: '',
+        trip: 'В поисках солнца: путешествие по Краснодарскому краю',
         tags: [
             {
                 title: 'природа',
@@ -2229,6 +2313,7 @@ export const PhotoCards = [
         regionId: 'hmao-yugra',
         location: 'Тайга Югры',
         description: '',
+        trip: 'Легенды северных рек Югры',
         tags: [
             {
                 title: 'тайга',
@@ -2254,6 +2339,7 @@ export const PhotoCards = [
         regionId: 'hmao-yugra',
         location: 'Тайга Югры',
         description: '',
+        trip: 'Легенды северных рек Югры',
         tags: [
             {
                 title: 'тайга',
@@ -2284,6 +2370,7 @@ export const PhotoCards = [
         regionId: 'irkutskaya-oblast',
         location: 'Ангарская деревня',
         description: '',
+        trip: 'Древний Иркутск: путешествие в сердце Сибири',
         tags: [
             {
                 title: 'архитектура',
@@ -2307,6 +2394,7 @@ export const PhotoCards = [
         regionId: 'respublika-tatarstan',
         location: 'Казань',
         description: '',
+        trip: 'Татарская культура: от Казани до Сарытау',
         tags: [
             {
                 title: 'зима',
@@ -2330,6 +2418,7 @@ export const PhotoCards = [
         regionId: 'irkutskaya-oblast',
         location: 'Братск',
         description: '',
+        trip: 'Древний Иркутск: путешествие в сердце Сибири',
         tags: [
             {
                 title: 'лес',
@@ -2353,6 +2442,7 @@ export const PhotoCards = [
         regionId: 'primorskiy-kraj',
         location: 'Скальный комплекс Замок, Находка-Врангель, Находка',
         description: '',
+        trip: 'Приморье: от японского моря до Ханкайского залива',
         tags: [
             {
                 title: 'горы',
@@ -2376,6 +2466,7 @@ export const PhotoCards = [
         regionId: 'primorskiy-kraj',
         location: 'Находка',
         description: '',
+        trip: 'Приморье: от японского моря до Ханкайского залива',
         tags: [
             {
                 title: 'цветы',
@@ -2398,6 +2489,7 @@ export const PhotoCards = [
         regionId: 'chelyabinskaya-oblast',
         location: 'Миасс',
         description: '',
+        trip: 'Экспедиция по Уральскому хребту',
         tags: [
             {
                 title: 'лес',
@@ -2424,6 +2516,7 @@ export const PhotoCards = [
         regionId: 'chelyabinskaya-oblast',
         location: 'Миасс',
         description: '',
+        trip: 'Экспедиция по Уральскому хребту',
         tags: [
             {
                 title: 'лес',
@@ -2450,6 +2543,7 @@ export const PhotoCards = [
         regionId: 'chelyabinskaya-oblast',
         location: 'озеро Тургояк',
         description: '',
+        trip: 'Экспедиция по Уральскому хребту',
         tags: [
             {
                 title: 'озеро',
@@ -2476,6 +2570,7 @@ export const PhotoCards = [
         regionId: 'chelyabinskaya-oblast',
         location: 'Миасс',
         description: '',
+        trip: 'Зимняя сказка Южного Урала',
         tags: [
             {
                 title: 'зима',
@@ -2502,6 +2597,7 @@ export const PhotoCards = [
         regionId: 'chelyabinskaya-oblast',
         location: 'Миасс',
         description: '',
+        trip: 'Экспедиция по Уральскому хребту',
         tags: [
             {
                 title: 'лето',
@@ -2527,7 +2623,7 @@ export const PhotoCards = [
         region: 'Томская область',
         regionId: 'tomskaya-oblast',
         location: 'Томск',
-        description: '',
+        description: '', trip: 'Сибирская гармония: Томская глубинка',
         tags: [
             {
                 title: 'зима',
@@ -2551,6 +2647,7 @@ export const PhotoCards = [
         regionId: 'tomskaya-oblast',
         location: 'Томск',
         description: '',
+        trip: 'Сибирская гармония: Томская глубинка',
         tags: [
             {
                 title: 'лето',
@@ -2578,6 +2675,7 @@ export const PhotoCards = [
         regionId: 'tomskaya-oblast',
         location: 'Томск',
         description: '',
+        trip: 'По следам древних народов Сибири',
         tags: [
             {
                 title: 'архитектура',
@@ -2604,6 +2702,7 @@ export const PhotoCards = [
         regionId: 'tomskaya-oblast',
         location: 'Томск',
         description: '',
+        trip: 'По следам древних народов Сибири',
         tags: [
             {
                 title: 'зима',
@@ -2630,6 +2729,7 @@ export const PhotoCards = [
         regionId: 'tomskaya-oblast',
         location: 'Томск',
         description: '',
+        trip: 'По следам древних народов Сибири',
         tags: [
             {
                 title: 'осень',
@@ -2656,6 +2756,7 @@ export const PhotoCards = [
         regionId: 'respublika-komi',
         location: 'В лесах Республики Коми',
         description: '',
+        trip: 'Северный край Коми: от озёр до лесов',
         tags: [
             {
                 title: 'зима',
@@ -2682,6 +2783,7 @@ export const PhotoCards = [
         regionId: 'respublika-komi',
         location: 'Северная Двина',
         description: '',
+        trip: 'Северный край Коми: от озёр до лесов',
         tags: [
             {
                 title: 'зима',
@@ -2708,6 +2810,7 @@ export const PhotoCards = [
         regionId: 'respublika-komi',
         location: 'В тайге Республики Коми',
         description: '',
+        trip: 'Легенды Коми',
         tags: [
             {
                 title: 'тайга',
@@ -2738,6 +2841,7 @@ export const PhotoCards = [
         regionId: 'respublika-komi',
         location: 'В лесах Республики Коми',
         description: '',
+        trip: 'Легенды Коми',
         tags: [
             {
                 title: 'цветы',
@@ -2760,6 +2864,7 @@ export const PhotoCards = [
         regionId: 'respublika-komi',
         location: 'Где-то в Республике Коми',
         description: 'Где-то в Республике Коми',
+        trip: 'Северный край Коми: от озёр до лесов',
         tags: [
             {
                 title: 'зима',
@@ -2786,6 +2891,7 @@ export const PhotoCards = [
         regionId: 'respublika-komi',
         location: 'Деревня',
         description: '',
+        trip: 'Легенды Коми',
         tags: [
             {
                 title: 'лето',
@@ -2812,6 +2918,7 @@ export const PhotoCards = [
         regionId: 'respublika-karelia',
         location: 'Сортавала',
         description: '',
+        trip: 'Северная Карелия: изумрудные просторы',
         tags: [
             {
                 title: 'лето',
@@ -2836,6 +2943,7 @@ export const PhotoCards = [
         regionId: 'respublika-karelia',
         location: 'Сортавала',
         description: '',
+        trip: 'Северная Карелия: изумрудные просторы',
         tags: [
             {
                 title: 'лето',
@@ -2866,6 +2974,7 @@ export const PhotoCards = [
         regionId: 'respublika-karelia',
         location: 'Рускеала',
         description: '',
+        trip: 'Северная Карелия: изумрудные просторы',
         tags: [
             {
                 title: 'лето',
@@ -2892,6 +3001,7 @@ export const PhotoCards = [
         regionId: 'respublika-karelia',
         location: 'Сортавала',
         description: '',
+        trip: 'Северная Карелия: изумрудные просторы',
         tags: [
             {
                 title: 'леc',
@@ -2914,6 +3024,7 @@ export const PhotoCards = [
         regionId: 'respublika-karelia',
         location: 'Рускеала',
         description: '',
+        trip: 'Северная Карелия: изумрудные просторы',
         tags: [
             {
                 title: 'лето',
@@ -2940,6 +3051,7 @@ export const PhotoCards = [
         regionId: 'respublika-karelia',
         location: 'Рускеала',
         description: '',
+        trip: 'Загадки Карелии: старинные крепости и легенды',
         tags: [
             {
                 title: 'горы',
@@ -2962,6 +3074,7 @@ export const PhotoCards = [
         regionId: 'respublika-karelia',
         location: 'Рускеала',
         description: '',
+        trip: 'Загадки Карелии: старинные крепости и легенды',
         tags: [
             {
                 title: 'горы',
@@ -2984,6 +3097,7 @@ export const PhotoCards = [
         regionId: 'respublika-karelia',
         location: 'озеро Пизанец',
         description: '',
+        trip: 'Карелия: сказочные озера и тайга',
         tags: [
             {
                 title: 'рассвет',
@@ -3006,6 +3120,7 @@ export const PhotoCards = [
         regionId: 'respublika-karelia',
         location: 'Кижи',
         description: '',
+        trip: 'Загадки Карелии: старинные крепости и легенды',
         tags: [
             {
                 title: 'архитектура',
@@ -3028,6 +3143,7 @@ export const PhotoCards = [
         regionId: 'respublika-karelia',
         location: 'Гора Кивакка',
         description: '',
+        trip: 'Карелия: сказочные озера и тайга',
         tags: [
             {
                 title: 'горы',
@@ -3050,6 +3166,7 @@ export const PhotoCards = [
         regionId: 'respublika-karelia',
         location: 'озеро Пизанец',
         description: '',
+        trip: 'Карелия: сказочные озера и тайга',
         tags: [
             {
                 title: 'птицы',
@@ -3076,6 +3193,7 @@ export const PhotoCards = [
         regionId: 'respublika-karelia',
         location: 'Где-то в тайге',
         description: '',
+        trip: 'Карелия: сказочные озера и тайга',
         tags: [
             {
                 title: 'тайга',
@@ -3098,6 +3216,7 @@ export const PhotoCards = [
         regionId: 'respublika-karelia',
         location: 'Тайга',
         description: '',
+        trip: 'Северная Карелия: изумрудные просторы',
         tags: [
             {
                 title: 'лес',
@@ -3124,6 +3243,7 @@ export const PhotoCards = [
         regionId: 'respublika-karelia',
         location: 'Где-то в Карелии',
         description: '',
+        trip: 'Северная Карелия: изумрудные просторы',
         tags: [
             {
                 title: 'природа',
@@ -3146,6 +3266,7 @@ export const PhotoCards = [
         regionId: 'respublika-karelia',
         location: 'Где-то в Карелии',
         description: '',
+        trip: 'Карелия: сказочные озера и тайга',
         tags: [
             {
                 title: 'природа',
@@ -3172,6 +3293,7 @@ export const PhotoCards = [
         regionId: 'respublika-karelia',
         location: 'Кижи',
         description: '',
+        trip: 'Загадки Карелии: старинные крепости и легенды',
         tags: [
             {
                 title: 'архитектура',
@@ -3194,6 +3316,7 @@ export const PhotoCards = [
         regionId: 'sankt-peterburg',
         location: 'Дворцовый мост',
         description: '',
+        trip: 'Величие дворцов и мостов Санкт-Петербурга',
         tags: [
             {
                 title: 'архитектура',
@@ -3220,6 +3343,7 @@ export const PhotoCards = [
         regionId: 'sankt-peterburg',
         location: 'Дом «Зингер»',
         description: '',
+        trip: 'Загадки и тайны Северной Венеции',
         tags: [
             {
                 title: 'архитектура',
@@ -3242,6 +3366,7 @@ export const PhotoCards = [
         regionId: 'sankt-peterburg',
         location: 'Исаакиевский собор',
         description: '',
+        trip: 'Загадки и тайны Северной Венеции',
         tags: [
             {
                 title: 'архитектура',
@@ -3251,10 +3376,10 @@ export const PhotoCards = [
         views: 340,
         likes: 20,
         author: {
-            id: '1',
-            name: 'Мария',
-            avatar: 'https://images.unsplash.com/photo-1541515929569-1771522cbaa9?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-            trips: '7 поездок',
+            id: '4',
+            name: 'Евгения',
+            avatar: 'https://images.unsplash.com/photo-1629185753060-6036205bbc02?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            trips: '12 поездок',
         }
     },
 
