@@ -222,7 +222,6 @@ watch(() => [formData.value.trip, formData.value.region, formData.value.place], 
   @include font-styles(16px, 400, 20px)
 
 .upload-area
-  //border: 2px dashed #ccc
   text-align: center
 
 .upload__block
